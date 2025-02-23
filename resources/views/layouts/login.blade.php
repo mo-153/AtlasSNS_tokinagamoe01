@@ -14,7 +14,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
   <!-- Scripts -->
   <!--サイトのアイコン指定-->
@@ -25,6 +24,7 @@
   <!--iphoneのアプリアイコン指定-->
   <link rel="apple-touch-icon-precomposed" href="画像のURL" />
   <!--OGPタグ/twitterカード-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 
 
