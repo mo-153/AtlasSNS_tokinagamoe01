@@ -24,7 +24,6 @@
   <!--iphoneのアプリアイコン指定-->
   <link rel="apple-touch-icon-precomposed" href="画像のURL" />
   <!--OGPタグ/twitterカード-->
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 
@@ -54,9 +53,9 @@
 <!-- Page Content -->
 <div id="row">
   <div id="container">
-      {{ $slot }}
-    </div>
-    <div id="side-bar">
+    {{ $slot }}
+  </div>
+  <div id="side-bar">
       <div id="confirm">
         <!-- ユーザー名が表示されるように下記を記述 -->
         <p>{{Auth::user()->username}}さんの</p>
@@ -75,11 +74,12 @@
       </div>
       <p class="btn"><a href="search">ユーザー検索</a></p>
     </div>
-  </div>
   <footer>
   </footer>
   <script src="{{ asset('js/app.js') }}"></script>
-  <script src="{{ asset('js/script.js') }}"></script>
+</div>
+<script src="{{ asset('js/script.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>
