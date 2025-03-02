@@ -1,14 +1,9 @@
-import './bootstrap';
+// アコーディオンメニュ
 
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
-
-// アコーディオンメニュー
-$('.accordion-menu').on('click', function () {
-  $('.allow').toggleClass('open');
-  $(this).next('.accordion-content').slideToggle();
-
+$(function () {
+  $('.accordion-menu').on('click', function () {
+    $(this).find('.accordion').toggleClass('open');
+    $(this).find('.allow').toggleClass('rotated');
+    $(this).find('.accordion-content').slideToggle();
+  });
 });
