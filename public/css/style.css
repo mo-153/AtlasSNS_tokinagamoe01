@@ -34,76 +34,44 @@ header {
     width: 3%;
     height: 5%;
     position: fixed;
-    top: 60px;
-    right: 60px;
+    top: 80px;
+    right: 230px;
     background-color: #186AC9;
     border: #186AC9;
 }
 
 .accordion {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.accordion::before {
-    position: absolute;
-    content: "";
-    top: 40%;
-    left: 0%;
-    width: 15px;
-    height: 15px;
-    transform: translate(-50%, -40%) rotate(135deg);
-    border-top: 2px solid #fff;
-    border-right: 2px solid #fff;
-    transition: 0.3s ease;
-    cursor: pointer;
-}
-
-.accordion-item {
-    width: 3%;
-    height: 5%;
-    position: fixed;
-    top: 65px;
-    right: 200px;
-    background-color: #186AC9;
-    border: #186AC9;
+    text-align: center;
+    font-size: 15px;
     color: #fff;
-    font-size: 100%;
+    background-color: #186AC9;
     white-space: nowrap;
 }
 
-.accordion-item .inn::before {
-    top: 60%;
-    transform: translate(-50%, -60%) rotate(-45deg);
-}
+
 
 .accordion-header {
     position: absolute;
-    top: 60px;
-    width: 100%;
-    background-color: #fff;
-    opacity: 0;
-    transition: .3s ease-in-out;
-    pointer-events: none;
-    transform: translateY(-30px);
+    content: "";
+    top: 15px;
+    left: 150px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transform: translate(-50%, -40%) rotate(315deg);
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
 }
 
-.accordion-header ul {
-    border-bottom: 1px solid #000;
+.allow {
+    transform: rotate(90deg);
+    transition: 0.3s;
 }
 
-.accordion-header li {
-    height: 60px;
-    border-top: 1px solid #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.accordion-header .allow {
-    opacity: 1;
-    transform: translateY(0);
-    transform: rotate(180deg);
+.accordion-content {
+    display: none;
+    position: relative;
+    top: 30px;
+    right: 60px;
+    transform: rotate(45deg);
 }

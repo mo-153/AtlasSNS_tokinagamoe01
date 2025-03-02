@@ -8,24 +8,24 @@
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
-  <!--スマホ,タブレット対応-->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <!--スマホ,タブレット対応-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-  <!-- Scripts -->
-  <!--サイトのアイコン指定-->
-  <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
-  <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
-  <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
-  <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
-  <!--iphoneのアプリアイコン指定-->
-  <link rel="apple-touch-icon-precomposed" href="画像のURL" />
-  <!--OGPタグ/twitterカード-->
-</head>
+    <!-- Scripts -->
+    <!--サイトのアイコン指定-->
+    <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
+    <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
+    <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
+    <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
+    <!--iphoneのアプリアイコン指定-->
+    <link rel="apple-touch-icon-precomposed" href="画像のURL" />
+    <!--OGPタグ/twitterカード-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
 
 
 
@@ -37,16 +37,16 @@
         <div class = "accordion-item">
           <p>{{ Auth::user()->username }}さん</p>
         </div>
-    <div class ="accordion-header">
-      <span class = "allow"></span>
-      <div class = "accordion-content">
-        <ul>
-          <li><a href="top">ホーム</a></li>
+        <div class ="accordion-header">
+          <span class = "allow"></span>
+          <div class = "accordion-content">
+            <ul>
+              <li><a href="top">ホーム</a></li>
           <li><a href="profile">プロフィール編集</a></li>
-      <li><a href="login">ログアウト</a></li>
-    </ul>
+          <li><a href="login">ログアウト</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
   </div>
 </div>
 </header>
@@ -78,9 +78,9 @@
     </div>
   </div>
   <footer>
-  </footer>
-  <script src="{{ asset('js/app.js') }}"></script>
-  <script src="{{ asset('js/script.js') }}"></script>
-</body>
+    </footer>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+  </body>
 
-</html>
+  </html>
