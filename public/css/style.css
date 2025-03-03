@@ -30,7 +30,7 @@ header {
 
 
 /* ヘッダーのアコーディオンメニュー */
-accordion-menu {
+.accordion-menu {
     width: 3%;
     height: 5%;
     position: fixed;
