@@ -1,8 +1,6 @@
 // アコーディオンメニュ
-
 $(function () {
-  $('.accordion-menu').on('click', function () {
-    $(this).find('.accordion').toggleClass('open');
+  $('.accordion-header').on('click', function () {
     $(this).find('.allow').toggleClass('rotated');
     $(this).find('.accordion-content').slideToggle();
   });
