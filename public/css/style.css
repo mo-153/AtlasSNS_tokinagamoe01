@@ -30,48 +30,44 @@ header {
 
 
 /* ヘッダーのアコーディオンメニュー */
-.accordion-menu {
+.accordion-item {
     width: 3%;
     height: 5%;
     position: fixed;
     top: 80px;
     right: 230px;
     background-color: #186AC9;
-    border: #186AC9;
-}
-
-.accordion {
-    text-align: center;
-    font-size: 15px;
     color: #fff;
-    background-color: #186AC9;
     white-space: nowrap;
 }
 
-
-
 .accordion-header {
-    position: absolute;
-    content: "";
-    top: 15px;
-    left: 150px;
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
-    transform: translate(-50%, -40%) rotate(315deg);
-    border-top: 2px solid #fff;
-    border-right: 2px solid #fff;
+    position: relative;
 }
 
 .allow {
-    transform: rotate(90deg);
-    transition: 0.3s;
+    position: absolute;
+    top: -50px;
+    right: 120px;
+    width: 15px;
+    height: 15px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.allow.rotated {
+    transform: rotate(225deg);
 }
 
 .accordion-content {
     display: none;
-    position: relative;
-    top: 30px;
-    right: 60px;
-    transform: rotate(45deg);
+    position: absolute;
+    top: 10px;
+    right: 135px;
+    width: 15px;
+    height: 15px;
+    white-space: nowrap;
+
 }
