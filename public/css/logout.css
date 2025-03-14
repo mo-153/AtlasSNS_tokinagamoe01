@@ -1,10 +1,72 @@
 @charset "UTF-8";
 
-html{
+html {
     height: 100%;
+    background: linear-gradient(#186AC9, #FFD700);
 }
 
-body{
+body {
+    position: fixed;
     height: 100%;
-    background: #186AC9;
+    /* background: #186AC9; */
+    background: linear-gradient(#186AC9, #1e8eff, #6fb7ff, #CCCC66);
+}
+
+header {
+    position: absolute;
+    top: 150px;
+    right: 400px;
+}
+
+.tittle {
+    position: relative;
+    left: 50px;
+    max-width: 40%;
+}
+
+.sub-tittle {
+    position: relative;
+    right: 50px;
+    color: #fff;
+    font-size: 35px;
+}
+
+.box {
+    position: relative;
+    padding: 40px 50px 40px 50px;
+    margin: 300px 500px 200px 500px;
+    font-weight: bold;
+    background: #555555;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.text {
+    color: #fff;
+}
+
+.login-form {
+    position: relative;
+    color: #fff;
+}
+
+.new-users {
+    position: relative;
+    bottom: -40px;
+    font-weight: lighter;
+    color: #fff;
+}
+
+.login-btn {
+    position: relative;
+    top: 15px;
+    left: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #FF3333;
+    color: #fff;
+    border-color: #FF3333;
+    font-weight: lighter;
+    border-radius: 10px;
+    font-size: large;
 }
