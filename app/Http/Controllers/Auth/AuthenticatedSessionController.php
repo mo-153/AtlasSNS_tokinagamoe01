@@ -34,9 +34,9 @@ class AuthenticatedSessionController extends Controller
 
     public function destroy(Request $request):RedirectResponse
     {
-        $Auth::logout();
+        Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect('logout');
     }
 }
