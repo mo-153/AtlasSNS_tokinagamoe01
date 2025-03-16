@@ -58,4 +58,4 @@ Route::middleware('auth')->group(function() {
     Route::get('/follower-list', [PostsController::class,'index'])->name('follower.list');
 });
      // ↓ログアウト後にログインページにリダイレクトされる
-    Route::post('logout',[AuthenticatedController::class,'destroy']);->name('login');
+    Route::post('logout',[AuthenticatedController::class,'destroy']);->name('logout');
