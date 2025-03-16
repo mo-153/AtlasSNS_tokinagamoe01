@@ -41,7 +41,11 @@
         <ul>
           <li><a href="top">ホーム</a></li>
           <li><a href="profile">プロフィール編集</a></li>
-      <li><a href="login">ログアウト</a></li>
+          <li>
+          <form action="{{ route('logout') }}" method="POST">
+          <a href="logout">ログアウト</a>
+          </form>
+      </li>
     </ul>
     </div>
   </div>
