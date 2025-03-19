@@ -10,6 +10,7 @@ body {
     height: 100%;
     /* background: #186AC9; */
     background: linear-gradient(#186AC9, #1e8eff, #6fb7ff, #CCCC66);
+
 }
 
 header {
@@ -18,22 +19,25 @@ header {
     right: 400px;
 }
 
-.tittle {
+.top-tittle {
     position: relative;
-    left: 50px;
+    top: -85px;
+    left: 5px;
     max-width: 40%;
 }
 
 .sub-tittle {
     position: relative;
-    right: 50px;
+    top: -95px;
+    right: 60px;
     color: #fff;
-    font-size: 35px;
+    font-size: 25px;
 }
 
 .box {
     position: relative;
-    padding: 40px 50px 40px 50px;
+    top: -100px;
+    padding: 60px 50px 40px 50px;
     margin: 300px 500px 200px 500px;
     font-weight: bold;
     background: #555555;
@@ -41,14 +45,20 @@ header {
     border-radius: 10px;
 }
 
-.text {
+.title {
     color: #fff;
 }
 
-.login-form {
+.login {
     position: relative;
     color: #fff;
 }
+
+.input {
+    color: #555555;
+}
+
+
 
 .new-users {
     position: relative;
@@ -56,6 +66,7 @@ header {
     font-weight: lighter;
     color: #fff;
 }
+
 
 .login-btn {
     position: relative;
@@ -69,4 +80,52 @@ header {
     font-weight: lighter;
     border-radius: 10px;
     font-size: large;
+}
+
+
+/* registerページのCSS */
+.user-registration {
+    position: relative;
+    top: -5px;
+    left: 15px;
+    font-size: 15px;
+    font-weight: lighter;
+    white-space: inherit;
+    color: #fff;
+}
+
+.login-form {
+    position: relative;
+    top: -15px;
+    color: #fff;
+}
+
+.new-box {
+    position: relative;
+    padding: 15px 50px 10px 50px;
+    margin: 200px 500px 300px 500px;
+    font-weight: bold;
+    background: #555555;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.new-user-btn {
+    position: relative;
+    top: 15px;
+    left: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #FF3333;
+    color: #fff;
+    border-color: #FF3333;
+    font-weight: lighter;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.back-page {
+    position: relative;
+    bottom: -15px;
+    color: #fff;
 }
