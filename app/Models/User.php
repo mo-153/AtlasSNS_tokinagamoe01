@@ -34,7 +34,32 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+
+        // フォローする
+    public function follow(Int $User_id)
+    {
+        return $this -> follows()->attach($user_id);
+    }
+    // フォロー解除する
+    public function unfollow(Int $User_id)
+    {
+        return $this -> follows()->detach($user_id);
+    }
+
+    // フォローしているか
+    public function isFollowing(Int $User_id)
+    {
+        return (boolean) $this-> follows()->where('followed_id',$user_id)->first(['id']);
+    }
+
+    // フォローされているか
+    public function isFollowed(Int $User_id)
+    {
+        return (boolean)$this -> follows()->where('following_id',$user_id)->first(['id']);
+    }
 }
+
 
     // リレーション設定
      class Follow extends Model
