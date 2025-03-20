@@ -71,3 +71,24 @@ header {
     white-space: nowrap;
 
 }
+
+li {
+    position: relative;
+    top: -1px;
+    width: 200px;
+    padding: 15px;
+    padding-left: 50px;
+    border: solid 1.5px #003366;
+    background-color: #fff;
+}
+
+.profile {
+    position: relative;
+    right: 40px;
+    width: 30px;
+    padding: 20px;
+    padding-left: 35px;
+    background-color: #003366;
+
+    color: #fff;
+}
