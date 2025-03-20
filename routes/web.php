@@ -56,6 +56,16 @@ Route::middleware('auth')->group(function() {
 
     // ↓フォロワーページ
     Route::get('/follower-list', [PostsController::class,'index'])->name('follower.list');
+
+
+    　　// ユーザー関連
+    Route::resource('users','UsersController',['only'=>['index','show','edit','update']]);
+
+    // フォロー・フォロー解除
+    Route::post('users/{user}/follow','UsersController@follow')->name('follow');
+    Route::delete('users/{user}/follow','UsersController@follow')->name('unfollow');
+
+
 });
      // ↓ログアウト後にログインページにリダイレクトされる
     Route::post('/logout',[AuthenticatedController::class,'destroy']);->name('logout');
