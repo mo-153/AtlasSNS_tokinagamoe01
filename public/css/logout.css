@@ -129,3 +129,39 @@ header {
     bottom: -15px;
     color: #fff;
 }
+
+
+/* addページのレイアウト */
+.add_users {
+    position: relative;
+    top: -20px;
+    color: #fff;
+    font-size: large;
+    line-height: 10px;
+}
+
+.add {
+    top: 10px;
+    white-space: nowrap;
+    color: #fff;
+    font-weight: lighter;
+    line-height: 10px;
+}
+
+.btn {
+    position: relative;
+    top: 25px;
+    left: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #FF3333;
+    border-color: #FF3333;
+    color: #fff;
+    font-weight: lighter;
+    border-radius: 10px;
+    font-size: large 35px;
+}
+
+.btn a {
+    color: #fff;
+}
