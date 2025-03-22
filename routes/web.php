@@ -68,4 +68,4 @@ Route::middleware('auth')->group(function() {
 
 });
      // ↓ログアウト後にログインページにリダイレクトされる
-    Route::post('/logout',[AuthenticatedController::class,'destroy']);->name('logout');
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
