@@ -39,19 +39,22 @@
       <span class = "allow"></span>
       <div class = "accordion-content">
         <ul>
-          <li><a href="top">ホーム</a></li>
-          <li><a href="profile">プロフィール編集</a></li>
+          <li><a href="top">HOME</a></li>
+          <li><a href="profile" class = "profile">プロフィール編集</a></li>
           <li>
-          <form action="{{ route('logout') }}" method="POST">
-          <a href="logout">ログアウト</a>
-          </form>
-      </li>
-    </ul>
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+               @csrf
+            </form>
+          </li>
+        </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-</div>
+  </form>
 </header>
+
 
 
 <!-- Page Content -->
