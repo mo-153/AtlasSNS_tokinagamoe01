@@ -9,6 +9,9 @@ class Follow extends Model
 {
     use HasFactory;
 
+    public function user(){
+        return $this ->hasMary('App/User');
+    }
 
     // リレーション設定
         // このユーザーがフォローしている人
@@ -31,6 +34,25 @@ class Follow extends Model
             'followed_id',
             'following_id'
         )->withTimestamps();
+    }
+
+
+    // フォローする
+    public function follow(User $date)
+    {
+        $this->following()->attach($date->id);
+    }
+
+    // フォロー解除
+        public function unfollow(User $date)
+    {
+        $this->following()->attach($date->id);
+    }
+
+    // フォローしているか確認する
+    public function isFollowing(User $date)
+    {
+        return $this->following()->where('following_id',$date->id)->exits();
     }
 }
 
