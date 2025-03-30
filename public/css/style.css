@@ -101,3 +101,23 @@ li a {
     background-color: #003366;
     color: #fff;
 }
+
+/* searchページ */
+.search {
+    position: relative;
+    top: 230px;
+    left: 50px;
+}
+
+.follow-btn {
+    position: absolute;
+    top: 300px;
+    left: 200px;
+}
+
+.search_username {
+    position: relative;
+    top: 300px;
+    left: 100px;
+    color: #186AC9;
+}
