@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/profile', [ProfileController::class,'profile'])->name('profile');
 
     // ↓ユーザー検索ページ
-    Route::get('/search', [UsersController::class,'index'])->name('index');
+    Route::get('/search', [UsersController::class,'search'])->name('search');
 
     // ↓フォローページ
     Route::get('/follow-list', [PostsController::class,'index'])->name('follow.list');
@@ -58,14 +58,20 @@ Route::middleware('auth')->group(function() {
     Route::get('/follower-list', [PostsController::class,'index'])->name('follower.list');
 
 
-    　　// ユーザー関連
-    Route::resource('users','UsersController',['only'=>['index','show','edit','update']]);
 
-    // フォロー・フォロー解除
-    Route::post('users/{user}/follow','UsersController@follow')->name('follow');
-    Route::delete('users/{user}/follow','UsersController@follow')->name('unfollow');
+    //フォローする
+    Route::post('/follow',[FollowsController::class,'follow'])->name('follow');
+
+    // フォロー解除
+    Route::post('/unfollow',[FollowsController::class,'unfollow'])->name('unfollow');
 
 
+    // 投稿を削除する
+    Route::get('/posts/{id}delete',[PostsController::class,'delete']);
+
+    // 投稿を編集する
+    Route::get('/posts/{id}update',[PostsController::class,'update'])->name('update');
+    Route::post('/posts/{id}update',[PostsController::class,'update'])->name('update');
 });
      // ↓ログアウト後にログインページにリダイレクトされる
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
