@@ -26,14 +26,7 @@
         <button type="button" class="btn btn-primary follow-toggle" data-user-id="{{ $user->id }}" data-follow="{{ $user->is_followed ? 'true' : 'false' }}">
           {{ $user->is_followed ? 'フォロー解除' : 'フォローする' }}
         </button>
-           <!-- <form action="{{ route($user->is_followed ? 'unfollow' : 'follow') }}" method="post" >
-             @csrf
-             <input type="hidden" name="user_id" value="{{ $user->id }}">
-             <button type="submit" class="btn btn-primary" >
-               {{ $user->is_followed ? 'フォロー解除' : 'フォローする' }}
-              </button>
-            </form> -->
-          </div>
+        </div>
           @endif
     @endforeach
 @endif
