@@ -8,12 +8,15 @@ use App\Models\Follow;
 
 class FollowsController extends Controller
 {
-    //
+
     public function followList(){
         return view('follows.followList');
     }
+    　　// ↑フォローリストを表示
+
     public function followerList(){
         return view('follows.followerList');
+        // フォローしている人を表示
     }
 
 
@@ -22,7 +25,7 @@ class FollowsController extends Controller
     public function follow(Request $request)
     {
         $followerId = Auth::id();
-        $userId = $request->input('user_id');
+        $userId = $request->input('user_id');// ←フォローしている人のID
 
         $follow = Follow::where('following_id',$followerId)
         ->where('followed_Id',$userId)
@@ -34,16 +37,17 @@ class FollowsController extends Controller
             // フォロー解除
 
         }else{
-            // フォロー
             Follow::create([
                 'following_id'=>$followerId,
                 'followed_id'=>$userId,
             ]);
             return response()->json(['status'=>true]);
+            // フォロー
         }
     }
 
 
+    // フォロー解除について
     public function unfollow(Request $request)
     {
         $followerId = Auth::id();

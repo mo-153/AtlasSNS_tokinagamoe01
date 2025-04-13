@@ -15,6 +15,7 @@ $(document).ready(function () {
   // ↑ページの読み込みが完了したら処理が開始する
   $(".follow-toggle").click(function (event) {
     event.preventDefault();
+    // ↑event.preventDefault();でクリックしてもページが移動しないようにする
 
     var button = $(this);
     var userId = button.data("user-id");
