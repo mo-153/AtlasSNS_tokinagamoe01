@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\FollowsController;
+
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -65,6 +67,8 @@ Route::middleware('auth')->group(function() {
     // フォロー解除
     Route::post('/unfollow',[FollowsController::class,'unfollow'])->name('unfollow');
 
+    // 投稿を表示
+    Route::get('/top',[PostsController::class,'show'])->name('posts.index');
 
     // 投稿を削除する
     Route::get('/posts/{id}delete',[PostsController::class,'delete']);
