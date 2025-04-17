@@ -3,14 +3,24 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostsController extends Controller
 {
-    //
-    public function index(){
-        return view('posts.index');
-    }
 
+    // すべてのユーザーの投稿を表示
+    // public function index(){
+    //     return view('posts.index');
+    // }
+
+    // public function show(){
+    //     $posts=Post::get();
+    //     return view('posts.index',compact('posts'));
+    // }
+
+
+
+    // フォローユーザのみの投稿を表示
     public function show(){
         $following_id = Auth::user()->follows()->pluck('following_id');
         // ↑フォローしているユーザーのidを取得
