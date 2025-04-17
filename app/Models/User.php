@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Follow;
+
 
 class User extends Authenticatable
 {
@@ -46,5 +48,17 @@ class User extends Authenticatable
     public function isFollowed(Int $user_id)
     {
         return (boolean) $this->follows()->where('following_id', $user_id)->exists();
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(APP::class);
+    }
+
+
+    // belongsToManyを記述してUserモデルトFollowテーブルの紐づけ
+    // フォローしているユーザーの情報を取得する
+    public function follows(){
+        return $this->belongsToMany(User::class,'follow_user','following_id','followed_id');
     }
 }

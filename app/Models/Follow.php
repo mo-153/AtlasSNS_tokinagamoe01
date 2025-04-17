@@ -10,8 +10,18 @@ class Follow extends Model
     use HasFactory;
 
     public function user(){
-        return $this ->hasMary('App/User');
+        return $this ->belongsTo('App/User');
     }
+
+
+    protected $fillable = [
+        'following_id',
+        'followed_id',
+    ];
+
+    // protected $fillableを記述することでfollowing_id,followed_idの登録ができるようになる
+
+
 
     // リレーション設定
         // このユーザーがフォローしている人
@@ -46,13 +56,13 @@ class Follow extends Model
     // フォロー解除
         public function unfollow(User $date)
     {
-        $this->following()->attach($date->id);
+        $this->following()->detach($date->id);
     }
 
     // フォローしているか確認する
     public function isFollowing(User $date)
     {
-        return $this->following()->where('following_id',$date->id)->exits();
+        return $this->following()->where('following_id',$date->id)->exists();
     }
 }
 
