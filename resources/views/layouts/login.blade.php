@@ -34,7 +34,10 @@
       <div class = "accordion">
         <div class = "accordion-item">
           <p>{{ Auth::user()->username }}さん</p>
+           <div class="icon">
+          <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}">
         </div>
+      </div>
     <div class ="accordion-header">
       <span class = "allow"></span>
       <div class = "accordion-content">
@@ -56,11 +59,11 @@
 </header>
 
 
-
 <!-- Page Content -->
 <div id="row">
   <div id="container">
-    {{ $slot }}
+      @yield('content')
+      {{$slot}}
   </div>
   <div id="side-bar">
       <div id="confirm">
@@ -68,14 +71,14 @@
         <p>{{Auth::user()->username}}さんの</p>
         <div>
           <p>フォロー数</p>
-          <p>〇〇名</p>
+          <p>{{ Auth::user()->follows()->get()->count() }}名</p>
+          <!-- ↑ログイン中のユーザーでフォローしている数をカウントして表示 -->
         </div>
-
-        <!-- a hrefのURL合ってる？ -->
         <p class="btn"><a href="follow-list">フォローリスト</a></p>
         <div>
           <p>フォロワー数</p>
-          <p>〇〇名</p>
+          <p>{{ Auth::user()->followers()->get()->count() }}名</p>
+          <!-- ↑ログイン中のユーザーでフォローされている数をカウントして表示 -->
         </div>
         <p class="btn"><a href="follower-list">フォロワーリスト</a></p>
       </div>
@@ -85,8 +88,7 @@
   </footer>
   <script src="{{ asset('js/app.js') }}"></script>
 </div>
-<script src="{{ asset('js/script.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 </body>
-
 </html>

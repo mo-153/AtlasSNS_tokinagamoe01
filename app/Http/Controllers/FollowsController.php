@@ -5,20 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Follow;
+use App\Models\User;
 
 class FollowsController extends Controller
 {
 
-    public function followList(){
-        return view('follows.followList');
-    }
-    　　// ↑フォローリストを表示
 
-    public function followerList(){
-        return view('follows.followerList');
-        // フォローしている人を表示
-    }
 
+// フォロー数カウント
+public function FollowCount(){
+    $follows = Follow::where('user_id',$followerId)->get();
+    return
+}
+// フォローワー数カウント
+public function FollowerCount(){
+
+}
 
 
     // フォローについて
@@ -28,7 +30,7 @@ class FollowsController extends Controller
         $userId = $request->input('user_id');// ←フォローしている人のID
 
         $follow = Follow::where('following_id',$followerId)
-        ->where('followed_Id',$userId)
+        ->where('followed_id',$userId)
         ->first();
 
         if($follow){
@@ -42,7 +44,7 @@ class FollowsController extends Controller
                 'followed_id'=>$userId,
             ]);
             return response()->json(['status'=>true]);
-            // フォロー
+            // フォローする
         }
     }
 
