@@ -190,11 +190,14 @@ li a {
 
 
 /* フォローしている人の投稿表示 */
-.post-form {
-    width: 0px;
-    height: 0px;
-    background: transparent;
-    /* ↑背景透過 */
-    border: transparent;
+.post-form-before {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    top: -75px;
+    padding-top: 60px;
+    padding-left: 140px;
+    resize: none;
+    border: #fff;
 
 }
