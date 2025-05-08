@@ -199,5 +199,12 @@ li a {
     padding-left: 140px;
     resize: none;
     border: #fff;
+}
 
+.post-icon-before {
+    position: relative;
+    top: 30px;
+    left: 60px;
+    z-index: 1;
+    /* ↑前面に配置 */
 }
