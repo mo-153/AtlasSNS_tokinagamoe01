@@ -71,13 +71,13 @@
         <p>{{Auth::user()->username}}さんの</p>
         <div>
           <p>フォロー数</p>
-          <p>{{ Auth::user()->follows()->get()->count() }}名</p>
+          <p id = "follows-count">{{ Auth::user()->follows()->get()->count() }}名</p>
           <!-- ↑ログイン中のユーザーでフォローしている数をカウントして表示 -->
         </div>
         <p class="btn"><a href="follow-list">フォローリスト</a></p>
         <div>
           <p>フォロワー数</p>
-          <p>{{ Auth::user()->followers()->get()->count() }}名</p>
+          <p id = "follower-count">{{ Auth::user()->followers()->get()->count() }}名</p>
           <!-- ↑ログイン中のユーザーでフォローされている数をカウントして表示 -->
         </div>
         <p class="btn"><a href="follower-list">フォロワーリスト</a></p>
