@@ -1,9 +1,10 @@
-<<?php
+<?php
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -24,8 +25,19 @@ class UsersController extends Controller
     // 検索結果を取得 (例として、ユーザー名にキーワードを部分一致で検索)
     $users = User::where('username', 'LIKE', "%{$keyword}%")->get();
 
+    $users->map(function ($user){
+        $user->is_followed=Auth::user()->isFollowing($user->id);
+        return $user;
+    });
+
+    $authUser = User::withCount(['follows', 'followers'])->find(Auth::id());
+
     // ビューに検索結果を渡す
-    return view('users.search', ['date' => $users]);
+    return view('users.search', [
+        'date' => $users,
+         'follows_count' => $authUser->follows_count,
+        'follower_count' => $authUser->followers_count,
+    ]);
 }
 
     // followも自分で記述
@@ -43,10 +55,10 @@ class UsersController extends Controller
         // フォローしているか
 
         $is_following = $follower->isFollowing($user->id);
-        if(!$is_following){
+        if($is_following){
     // フォローしてなかったらフォローする
     $follower->follow($user->id);
-    return back();
+    return b1ack();
       }
     }
 
