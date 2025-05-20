@@ -39,13 +39,18 @@ Route::middleware('guest')->group(function() {
 Route::middleware('auth')->group(function() {
     // トップページ
     // ↓投稿の一覧が表示される
+    // 個別の投稿ページ
     Route::get('/top', [PostsController::class,'index'])->name('posts.index');
+
     // ↓新しい投稿が保存される
     Route::post('/top', [PostsController::class, 'store'])->name('posts.store');
 
-    // 個別の投稿ページ
+
     // ↓指定されたユーザーの投稿ページにアクセスして特定のユーザーの投稿が表示される
     Route::get('/top/{username}',[PostsController::class,'show'])->name('posts.show');
+
+
+
 
     // ↓プロフィールページにアクセス
     Route::get('/profile', [ProfileController::class,'profile'])->name('profile');
@@ -64,18 +69,20 @@ Route::middleware('auth')->group(function() {
     //フォローする
     Route::post('/follow',[FollowsController::class,'follow'])->name('follow');
 
-    // フォロー解除
-    Route::post('/unfollow',[FollowsController::class,'unfollow'])->name('unfollow');
+    Route::get('/follow-counts',[FollowsController::class,'followCounts']);
 
-    // 投稿を表示
-    Route::get('/top',[PostsController::class,'show'])->name('posts.index');
+    // 4/25記述！！！多分違う
+    // Route::post('/top',[FollowsController::class,'follows'])->name('followCounts');
+
+    // Route::post('/top',[FollowsController::class,'followers'])->name('followerCounts');
+
 
     // 投稿を削除する
-    Route::get('/posts/{id}delete',[PostsController::class,'delete']);
+    // Route::get('/posts/{id}delete',[PostsController::class,'posts.delete']);
 
     // 投稿を編集する
-    Route::get('/posts/{id}update',[PostsController::class,'update'])->name('update');
-    Route::post('/posts/{id}update',[PostsController::class,'update'])->name('update');
+    // Route::get('/posts/{id}update',[PostsController::class,'update'])->name('posts.edit');
+    // Route::post('/posts/{id}update',[PostsController::class,'update'])->name('posts.update');
 });
      // ↓ログアウト後にログインページにリダイレクトされる
      Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
