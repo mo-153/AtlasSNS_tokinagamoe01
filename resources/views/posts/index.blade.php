@@ -14,18 +14,19 @@
 
 
 <!-- 自分＆フォローしている人の投稿を表示 -->
-@if($posts->isNotEmpty())
-@foreach($posts as $post)
-<div class="post-icon-before">
-  <!-- ↑投稿がまだないときは投稿の枠が表示されないようにするための記述 -->
-  <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}">
-</div>
-<!-- ↓フォロワーさんの投稿が表示されるフォームを作成 -->
-<!-- ↓textareaではなく「article」を使用 -->
-<article class="post-form-before">
-    <p id = "post-username">{{ $post->user->username }}</p>
-    <p id = "post-content">{{ $post->post }}</p>
-    @endforeach
-    @endif
-  </article>
+  @if($posts->isNotEmpty())
+    <div class="posts-container">
+      @foreach($posts as $post)
+        <article class="post-form-before">
+          <div class="post-icon-before">
+            <img src="{{ asset('images/icon' . ($post->user->id % 7 + 1) . '.png') }}">
+          </div>
+          <div class="post-content-container">
+            <p id="post-username">{{ $post->user->username }}</p>
+            <p id="post-content">{{ $post->post }}</p>
+          </div>
+        </article>
+      @endforeach
+    </div>
+  @endif
 </x-login-layout>
