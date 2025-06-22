@@ -59,10 +59,10 @@ Route::middleware('auth')->group(function() {
     Route::get('/search', [UsersController::class,'search'])->name('search');
 
     // ↓フォローページ
-    Route::get('/follow-list', [PostsController::class,'index'])->name('follow.list');
+    Route::get('/follow-list', [FollowsController::class,'followList'])->name('follow.list');
 
     // ↓フォロワーページ
-    Route::get('/follower-list', [PostsController::class,'index'])->name('follower.list');
+    Route::get('/follower-list', [FollowsController::class,'followerList'])->name('follower.list');
 
 
 
@@ -71,18 +71,20 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/follow-counts',[FollowsController::class,'followCounts']);
 
-    // 4/25記述！！！多分違う
-    // Route::post('/top',[FollowsController::class,'follows'])->name('followCounts');
-
-    // Route::post('/top',[FollowsController::class,'followers'])->name('followerCounts');
-
 
     // 投稿を削除する
-    // Route::get('/posts/{id}delete',[PostsController::class,'posts.delete']);
+    Route::delete('/posts/{id}',[PostsController::class,'destroy'])->name('posts.destroy');
+    // ↑deleteメソッドは削除するときに記述する。完全に削除するときに記述する
+
+
 
     // 投稿を編集する
-    // Route::get('/posts/{id}update',[PostsController::class,'update'])->name('posts.edit');
-    // Route::post('/posts/{id}update',[PostsController::class,'update'])->name('posts.update');
+    Route::get('/posts/{id}/edit',[PostsController::class,'edit'])->name('posts.edit');
+
+    // 編集後に更新
+    Route::put('/posts/{id}',[PostsController::class,'update'])->name('posts.update');
+    // ↑putメソッドハ更新するときに記述する
+
 });
      // ↓ログアウト後にログインページにリダイレクトされる
      Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');

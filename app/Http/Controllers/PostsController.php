@@ -51,4 +51,50 @@ class PostsController extends Controller
 
             return redirect()->route('posts.index');
         }
+
+
+        // 投稿編集
+        public function edit($id){
+            $post=Post::findOrFail($id);
+
+            if(Auth::id() !==$post->user_id){
+            abort(403, 'Unauthorized action.');
+            }
+
+            return view('posts.edit',compact('post'));
+        }
+
+
+        // 登校編集を更新
+        public function update(Request $request,$id){
+            $request->validate([
+                'post'=>'required|string|max:150',
+            ]);
+            $post=Post::findOrFail($id);
+
+            if(Auth::id() !==$post->user_id){
+            // ↑(Auth::id())でログイン中のユーザー、($post->user_id)でその投稿を作ったユーザーが同じが確認している
+
+            abort(403, 'Unauthorized action.');
+            }
+            // ↑セキュリティ対策・アクセス制限を確認
+            // ↑他のユーザーが変更できないように
+
+            $post->post=$request->input('post');
+            $post->save();
+
+            return redirect()->route('posts.index');
+        }
+
+
+        // 自分の投稿を削除する
+        public function destroy($id){
+            $post=Post::findOrFail($id);
+
+            if(Auth::id()!==$post->user_id){
+                abort('子の投稿を削除します。よろしいでしょうか？');
+            }
+            $post->delete();
+            return redirect()->route('posts.index');
+        }
     }

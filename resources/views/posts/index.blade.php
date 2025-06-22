@@ -24,9 +24,56 @@
           <div class="post-content-container">
             <p id="post-username">{{ $post->user->username }}</p>
             <p id="post-content">{{ $post->post }}</p>
+
+            <!-- 投稿の編集ボタン -->
+             @if(Auth::id() === $post->user_id)
+             <!-- ↑Auth::id()でログインユーザーのユーザーIDを取得
+              ===で同じユーザーかどうか確認
+              $post->user_idで投稿者のID
+               ↑投稿者のIDが自分と同じか確認して編集ボタンを表示 -->
+             <div class="content">
+               <div class="js-modal-open" post="{{ $post->post }}" post_id="{{ $post->id }}">
+                 <!-- ↑routeで{id}を記述していてidを送るから[]内の記述がいる -->
+                 <!-- ↑編集のモーダルを表示させるため -->
+                 <button class = "post-edit">
+                   <img src="{{ asset('images/edit.png') }}" class = "edit-btn">
+                  </button>
+                </div>
+
+              <!-- 投稿の削除ボタン -->
+              <div class="destroy-content">
+                <form action="{{ route('posts.destroy',['id'=>$post->id])}}" method="POST" onsubmit="return confirm('この投稿を削除します。よろしいでしょうか？');">
+                  @csrf
+                  @method('DELETE')
+                  <button class = "post-destroy-btn">
+                  <img src="{{ asset('images/trash.png') }}" class = "destroy-btn">
+                 </button>
+                </form>
+            </div>
+            @endif
           </div>
         </article>
       @endforeach
-    </div>
-  @endif
-</x-login-layout>
+     </div>
+
+      <!-- 編集のモーダルの中身 -->
+      <div class = "modal js-modal">
+        <div class = "modal_bg js-modal-close"></div>
+        <div class ="modal_content">
+          <form class="modal-form" method="POST">
+            @csrf
+            @method('PUT')
+            <textarea name="post" class="modal_post"></textarea>
+            <input type="hidden" name="post-update" class="modal_id" value="">
+            <input type="submit" value="更新">
+            <!-- {{ csrf_field() }} -->
+          </form>
+          <a class="js-modal-close" href="posts.store">
+            <button class = "post-more-edit">
+            <img src="{{ asset('images/edit.png') }}" class = "edit-more-btn">
+            </button>
+          </a>
+        </div>
+      </div>
+      @endif
+    </x-login-layout>
