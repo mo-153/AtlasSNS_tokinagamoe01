@@ -60,19 +60,19 @@
       <div class = "modal js-modal">
         <div class = "modal_bg js-modal-close"></div>
         <div class ="modal_content">
-          <form class="modal-form" method="POST">
+          <form action="{{ route('posts.update','id=>$post->post') }}" class="modal-form" method="POST">
             @csrf
             @method('PUT')
             <textarea name="post" class="modal_post"></textarea>
             <input type="hidden" name="post-update" class="modal_id" value="">
-            <input type="submit" value="更新">
+            <!-- <input type="submit" value="更新"> -->
             <!-- {{ csrf_field() }} -->
+            <a class="js-modal-close" href="">
+              <button class = "post-more-edit">
+                <img src="{{ asset('images/edit.png') }}" class = "edit-more-btn">
+              </button>
+            </a>
           </form>
-          <a class="js-modal-close" href="posts.store">
-            <button class = "post-more-edit">
-            <img src="{{ asset('images/edit.png') }}" class = "edit-more-btn">
-            </button>
-          </a>
         </div>
       </div>
       @endif
