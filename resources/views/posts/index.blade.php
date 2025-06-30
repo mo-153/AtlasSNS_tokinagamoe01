@@ -25,6 +25,7 @@
             <p id="post-username">{{ $post->user->username }}</p>
             <p id="post-content">{{ $post->post }}</p>
 
+
             <!-- 投稿の編集ボタン -->
              @if(Auth::id() === $post->user_id)
              <!-- ↑Auth::id()でログインユーザーのユーザーIDを取得
@@ -33,7 +34,7 @@
                ↑投稿者のIDが自分と同じか確認して編集ボタンを表示 -->
              <div class="content">
                <div class="js-modal-open" post="{{ $post->post }}" post_id="{{ $post->id }}">
-                 <!-- ↑routeで{id}を記述していてidを送るから[]内の記述がいる -->
+                 <!-- ↑routeで{id}を記述していてidを送るから{}内の記述がいる -->
                  <!-- ↑編集のモーダルを表示させるため -->
                  <button class = "post-edit">
                    <img src="{{ asset('images/edit.png') }}" class = "edit-btn">
@@ -60,18 +61,19 @@
       <div class = "modal js-modal">
         <div class = "modal_bg js-modal-close"></div>
         <div class ="modal_content">
-          <form action="{{ route('posts.update','id=>$post->post') }}" class="modal-form" method="POST">
+          <form action="{{ route('posts.update',['id'=>$post->post]) }}" class="modal-form" method="POST">
+
             @csrf
             @method('PUT')
             <textarea name="post" class="modal_post"></textarea>
-            <input type="hidden" name="post-update" class="modal_id" value="">
-            <!-- <input type="submit" value="更新"> -->
-            <!-- {{ csrf_field() }} -->
-            <a class="js-modal-close" href="">
-              <button class = "post-more-edit">
+            <input type="hidden" class="modal_id" name="id" value="{{ $post->id }}">
+            <!-- ↑routeで{id}を記述していてidを送るから{}内の記述がいる -->
+
+            <!-- <input type="submit" value="更新">
+            {{ csrf_field() }} -->
+              <button type="submit" class = "post-more-edit">
                 <img src="{{ asset('images/edit.png') }}" class = "edit-more-btn">
               </button>
-            </a>
           </form>
         </div>
       </div>
