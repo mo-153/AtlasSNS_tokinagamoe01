@@ -1,8 +1,28 @@
 <x-login-layout>
+  <!-- フォローリストの表示 -->
       <article class="follow-list">
        <h2 class=follow-list-title>フォローリスト</h2>
-        @foreach($follows as $follow)
-        <img src="{{ asset('images/icon' . ($follow->id % 7 + 1) . '.png') }}" class="follow-list-icon">
+       <div class="follow-icons">
+         @foreach($follows as $follow)
+         <div class="follow-icon">
+           <img src="{{ asset('images/icon' . ($follow->id % 7 + 1) . '.png') }}">
+       </div>
+       @endforeach
+        </div>
       </article>
-      @endforeach
- </x-login-layout>
+
+      <!-- フォローユーザーの投稿表示 -->
+          <div class="follow-post-container">
+            @foreach($posts as $post)
+            <article class="follow-post">
+              <div class="post-follow-icon">
+                <img src="{{ asset('images/icon' . ($post->id % 7 + 1) . '.png') }}">
+              </div>
+              <div class="follow-post-content">
+            <p id="follow-username">{{ $post->user->username }}</p>
+            <p id="follow-content">{{ $post->post }}</p>
+              </div>
+            </article>
+            @endforeach
+          </div>
+        </x-login-layout>
