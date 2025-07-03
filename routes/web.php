@@ -51,9 +51,10 @@ Route::middleware('auth')->group(function() {
 
 
 
+    // ↓プロフィールページにアクセスして特定のユーザーのプロフィールへ
+    Route::get('/profile/{id}', [ProfileController::class,'profile'])->name('profiles.profile');
 
-    // ↓プロフィールページにアクセス
-    Route::get('/profile', [ProfileController::class,'profile'])->name('profile');
+
 
     // ↓ユーザー検索ページ
     Route::get('/search', [UsersController::class,'search'])->name('search');
@@ -74,7 +75,7 @@ Route::middleware('auth')->group(function() {
 
     // 投稿を削除する
     Route::delete('/posts/{id}',[PostsController::class,'destroy'])->name('posts.destroy');
-    // ↑deleteメソッドは削除するときに記述する。完全に削除するときに記述する
+    // ↑deleteメソッドは削除するときに記述する。完全に核所するときに記述する
 
 
 
@@ -83,7 +84,7 @@ Route::middleware('auth')->group(function() {
 
     // 編集後に更新
     Route::put('/posts/{id}',[PostsController::class,'update'])->name('posts.update');
-    // ↑putメソッドハ更新するときに記述する
+    // ↑putメソッドは更新するときに記述する
 
 });
      // ↓ログアウト後にログインページにリダイレクトされる
