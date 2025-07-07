@@ -1,6 +1,6 @@
 <x-login-layout>
-   <!-- フォローリストの表示 -->
-   <article class="follow-list">
+  <!-- フォローリストの表示 -->
+      <article class="follow-list">
        <h2 class=follow-list-title>フォローリスト</h2>
        <div class="follow-icons">
          @foreach($follows as $follow)
@@ -27,4 +27,4 @@
             </article>
             @endforeach
           </div>
-</x-login-layout>
+        </x-login-layout>
