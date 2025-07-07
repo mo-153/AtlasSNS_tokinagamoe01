@@ -44,7 +44,8 @@
       <div class = "accordion-content">
         <ul>
           <li><a href="top">HOME</a></li>
-          <li><a href="profile" class = "profile">プロフィール編集</a></li>
+          <li><a href="{{ ('profiles.edit') }}" class="profile">プロフィール編集</a>
+          </li>
           <li>
             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -63,7 +64,6 @@
 <!-- Page Content -->
 <div id="row">
   <div id="container">
-      @yield('content')
       {{$slot}}
   </div>
  <div id="side-bar">

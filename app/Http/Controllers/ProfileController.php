@@ -14,9 +14,20 @@ use App\Models\Post;
 
 class ProfileController extends Controller
 {
-    public function profile($id){
+    public function show($id){
         $user=User::findOrFail($id);
-        return view('profiles.profile',compact('user'));
+        $posts=Post::where('user_id', $user->id)
+               ->orderBy('created_at','desc')
+               ->get();
+        // $user:プロフィールのユーザー情報、$posts:そのユーザーの投稿
+        return view('profiles.profile',compact('user','posts'));
+    }
+
+
+    // プロフィール編集ボタンで自分のプロフィールを編集する
+    public function edit($id) {
+        $user = Auth::user();
+        return view('profiles.edit', compact('user'));
     }
 
 }

@@ -51,9 +51,11 @@ Route::middleware('auth')->group(function() {
 
 
 
-    // ↓プロフィールページにアクセスして特定のユーザーのプロフィールへ
-    Route::get('/profile/{id}', [ProfileController::class,'profile'])->name('profiles.profile');
+    // ↓相手のプロフィールページにアクセスして特定のユーザーのプロフィールへ
+    Route::get('/profile/{id}', [ProfileController::class,'show'])->name('profiles.profile');
 
+    // 自分のプロフィール編集ページへ
+    Route::get('/profile/{id}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
 
 
     // ↓ユーザー検索ページ
