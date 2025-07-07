@@ -24,6 +24,9 @@
           <div class="post-content-container">
             <p id="post-username">{{ $post->user->username }}</p>
             <p id="post-content">{{ $post->post }}</p>
+            <div class="post-time">
+            <p>{{ $post->created_at->format('Y-m-d h:i') }}</p>
+          </div>
 
 
             <!-- 投稿の編集ボタン -->

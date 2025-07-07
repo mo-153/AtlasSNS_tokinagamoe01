@@ -24,6 +24,9 @@
             <p id="follow-username">{{ $post->user->username }}</p>
             <p id="follow-content">{{ $post->post }}</p>
               </div>
+              <div class="follow-post-time">
+              <p>{{ $post->created_at->format('Y-m-d h:i') }}</p>
+            </div>
             </article>
             @endforeach
           </div>

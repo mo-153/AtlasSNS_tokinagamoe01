@@ -24,6 +24,10 @@
             <p id="follower-username">{{ $post->user->username }}</p>
             <p id="follower-content">{{ $post->post }}</p>
               </div>
+              <div class="follower-post-time">
+            <p>{{ $post->created_at->format('Y-m-d h:i') }}</p>
+          </div>
+
             </article>
             @endforeach
           </div>
