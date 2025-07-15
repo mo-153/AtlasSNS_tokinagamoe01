@@ -4,16 +4,17 @@
   {!! Form::open(['url'=>'login','method'=>'post']) !!}
 
 <div class = "box">
-    <p class = "text">AtlasSNSへようこそ</p>
+    <p class = "title">AtlasSNSへようこそ</p>
 
-<div class = "login-form">
+<div class = "login">
   {{ Form::label('email') }}
   {{ Form::text('email',null,['class' => 'input']) }}
   {{ Form::label('password') }}
   {{ Form::password('password',['class' => 'input']) }}
 </div>
 
-<button class = "login-btn">LOGIN</button>
+{{ Form::submit('LOGIN',['class'=>'login-btn']) }}
+<!-- <button class = "login-btn">LOGIN</button> -->
 <p><a href="register" class = "new-users">新規ユーザーの方はこちら</a></p>
 </div>
 
