@@ -1,4 +1,4 @@
-<<?php
+<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('follows', function (Blueprint $table) {
+        Schema::create('follow_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('following_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('followed_id')->constrained('users')->cascadeOnDelete();
