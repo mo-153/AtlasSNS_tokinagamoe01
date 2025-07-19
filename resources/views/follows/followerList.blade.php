@@ -1,7 +1,7 @@
 <x-login-layout>
   <!-- フォローリストの表示 -->
       <article class="follower-list">
-       <h2 class=follower-list-title>フォローリスト</h2>
+       <h2 class=follower-list-title>フォロワーリスト</h2>
        <div class="follower-icons">
          @foreach($followers as $follower)
          <div class="follower-icon">
@@ -27,7 +27,6 @@
               <div class="follower-post-time">
             <p>{{ $post->created_at->format('Y-m-d h:i') }}</p>
           </div>
-
             </article>
             @endforeach
           </div>
