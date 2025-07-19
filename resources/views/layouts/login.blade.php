@@ -44,7 +44,7 @@
       <div class = "accordion-content">
         <ul>
           <li><a href="top">HOME</a></li>
-          <li><a href="{{ ('profiles.edit') }}" class="profile">プロフィール編集</a>
+          <li><a href="{{ route('profiles.edit',['id'=>Auth::id()])}}" class="profile">プロフィール編集</a>
           </li>
           <li>
             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
