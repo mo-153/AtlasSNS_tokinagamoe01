@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 require __DIR__ . '/auth.php';
 
 
+
+
 // ログアウト中のページ
 Route::middleware('guest')->group(function() {
     Route::get('/login', [AuthenticatedSessionController::class,'create'])->name('login');
@@ -54,8 +56,11 @@ Route::middleware('auth')->group(function() {
     // ↓相手のプロフィールページにアクセスして特定のユーザーのプロフィールへ
     Route::get('/profile/{id}', [ProfileController::class,'show'])->name('profiles.profile');
 
-    // 自分のプロフィール編集ページへ
+    //↓プロフィール編集
     Route::get('/profile/{id}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
+
+    // ↓プロフィールの更新
+    Route::put('/update',[ProfileController::class,'update'])->name('profile.update');
 
 
     // ↓ユーザー検索ページ

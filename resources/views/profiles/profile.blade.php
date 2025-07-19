@@ -8,16 +8,15 @@
     <img src="{{ asset('images/icon' . ($user->id % 7 + 1) . '.png') }}">
   </div>
   <div class="follow-btn">
-<button type="button" class="btn follow-toggle {{ $user->is_followed ? 'btn-danger' : 'btn-primary' }}" data-user-id="{{ $user->id }}" data-follow="{{ $user->is_followed ? 'true' : 'false' }}">
+    <button type="button" class="btn follow-toggle {{ $user->is_followed ? 'btn-danger' : 'btn-primary' }}" data-user-id="{{ $user->id }}" data-follow="{{ $user->is_followed ? 'true' : 'false' }}">
   {{ $user->is_followed ? 'フォロー解除' : 'フォローする' }}
 </button>
    </div>
-
-
 </div>
 </article>
 
 <!-- 過去の投稿表示 -->
+ @if(isset($posts) && $posts->isNotEmpty())
 <div class="follow-user-post">
         @foreach($posts as $post)
         <article class="user-posts">
@@ -33,4 +32,17 @@
             </article>
             @endforeach
           </div>
+          @endif
+
+
+          <!-- 自分のプロフィール編集 -->
+          @if(Auth::id()===$user->id)
+          <!-- ↑自分のidかどうか確認してプロフィール編集できるようにする -->
+          <div class="my-profile-edit">
+            <form action="{{ route('profile.update')}}"  method="POST">
+            @csrf
+            @method('PUT')
+        </div>
+          @endif
+
 </x-login-layout>
