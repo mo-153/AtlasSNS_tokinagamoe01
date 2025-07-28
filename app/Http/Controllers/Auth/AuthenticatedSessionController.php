@@ -32,11 +32,28 @@ class AuthenticatedSessionController extends Controller
         return redirect()->intended('top');
     }
 
-    public function destroy(Request $request):RedirectResponse
-    {
-        $Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/');
-    }
+    public function destroy(Request $request): RedirectResponse
+{
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('login'); // ログインページにリダイレクト
+}
+
+
+// public function login(Request $request)
+// {
+//     $credentials = $request->validate([
+//         'email' => ['required', 'email'],
+//         'password' => ['required'],
+//     ]);
+
+//     if (Auth::attempt($credentials)) {
+//         $request->session()->regenerate();
+//         return redirect()->intended('top');
+//     }
+
+
+
+// }
 }

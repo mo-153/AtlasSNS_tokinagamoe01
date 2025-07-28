@@ -2,51 +2,70 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Model;
-
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Follow;
+
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+
+    // リレーション
     protected $fillable = [
         'username',
         'email',
         'password',
+        'following_id',
+        'followed_id',
     ];
+    // protected $fillableを記述することでusername, email,password,following_id,followed_idの登録ができるようになる
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
+
+    // フォローする
+    public function follow(Int $user_id)
+    {
+        return $this->follows()->attach($user_id);
+    }
+
+    // フォロー解除する
+    public function unfollow(Int $user_id)
+    {
+        return $this->follows()->detach($user_id);
+    }
+
+    // フォローしているか
+    public function isFollowing(Int $user_id)
+    {
+        return $this->follows()->where('followed_id', $user_id)->exists();
+    }
+
+    // フォローされているか
+    public function isFollowedBy(Int $user_id)
+    {
+        return $this->follows()->where('user_id', $user_id)->exists();
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(APP::class);
+    }
+
+    // belongsToManyを記述してUserモデルトFollowテーブルの紐づけ
+    // フォローしているユーザーの情報を取得する
+    public function follows(){
+        return $this->belongsToMany(User::class,'follows','following_id','followed_id');
+    }
+
+    // フォローされているユーザーの情報を取得する
+    public function followers(){
+        return $this->belongsToMany(User::class,'follows','followed_id','following_id');
+    }
 }
-
-    // リレーション設定
-     class Follow extends Model
-   {
-     use HasFactory;
-            public function following(){
-            return $this -> belongToMany (followed::class)->withTimestamps();
-            }
-        }
-
-        // belongToMany()
-        // →多対多のリレーションシップを設定できる
-        // withTimestamps()
-        // →タイムスタンプ（）が自動的に保存する
-        // →中間テーブルはタイムスタンプが自動されないから記載する

@@ -1,10 +1,171 @@
 @charset "UTF-8";
 
-html{
+html {
     height: 100%;
+    background: linear-gradient(#186AC9, #FFD700);
 }
 
-body{
+body {
+    position: fixed;
     height: 100%;
-    background: #186AC9;
+    /* background: #186AC9; */
+    background: linear-gradient(#186AC9, #1e8eff, #6fb7ff, #CCCC66);
+
+}
+
+header {
+    position: absolute;
+    top: 150px;
+    right: 400px;
+}
+
+.top-tittle {
+    position: relative;
+    top: -85px;
+    left: 5px;
+    max-width: 40%;
+}
+
+.sub-tittle {
+    position: relative;
+    top: -95px;
+    right: 60px;
+    color: #fff;
+    font-size: 25px;
+}
+
+.box {
+    position: relative;
+    top: -100px;
+    padding: 60px 50px 40px 50px;
+    margin: 300px 500px 200px 500px;
+    font-weight: bold;
+    background: #555555;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.title {
+    color: #fff;
+}
+
+.login {
+    position: relative;
+    color: #fff;
+}
+
+.input {
+    color: #555555;
+}
+
+
+
+.new-users {
+    position: relative;
+    bottom: -40px;
+    font-weight: lighter;
+    color: #fff;
+}
+
+
+.login-btn {
+    position: relative;
+    top: 15px;
+    left: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #FF3333;
+    color: #fff;
+    border-color: #FF3333;
+    font-weight: lighter;
+    border-radius: 10px;
+    font-size: large;
+}
+
+
+/* registerページのCSS */
+.user-registration {
+    position: relative;
+    top: -5px;
+    left: 15px;
+    font-size: 15px;
+    font-weight: lighter;
+    white-space: inherit;
+    color: #fff;
+}
+
+.login-form {
+    position: relative;
+    top: -15px;
+    color: #fff;
+}
+
+input {
+    color: #555555;
+}
+
+.new-box {
+    position: relative;
+    padding: 15px 50px 10px 50px;
+    margin: 200px 500px 300px 500px;
+    font-weight: bold;
+    background: #555555;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.new-user-btn {
+    position: relative;
+    top: 15px;
+    left: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #FF3333;
+    color: #fff;
+    border-color: #FF3333;
+    font-weight: lighter;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.back-page {
+    position: relative;
+    bottom: -15px;
+    color: #fff;
+}
+
+
+/* addページのレイアウト */
+.add_users {
+    position: relative;
+    top: -20px;
+    color: #fff;
+    font-size: large;
+    line-height: 10px;
+}
+
+.add {
+    top: 10px;
+    white-space: nowrap;
+    color: #fff;
+    font-weight: lighter;
+    line-height: 10px;
+}
+
+.btn {
+    position: relative;
+    top: 25px;
+    left: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #FF3333;
+    border-color: #FF3333;
+    color: #fff;
+    font-weight: lighter;
+    border-radius: 10px;
+    font-size: large 35px;
+}
+
+.btn a {
+    color: #fff;
 }

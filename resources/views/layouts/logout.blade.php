@@ -24,14 +24,14 @@
     </head>
     <body>
         <header>
-            <h1><img src="images/atlas.png"></h1>
-            <p>Social Network Service</p>
+            <h1><img src="images/atlas.png" class = "top-tittle"></h1>
+            <p class="sub-tittle">Social Network Service</p>
         </header>
         <div id="container">
             {{ $slot }}
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="JavaScriptファイルのURL"></script>
+        <script src="{{ asset('js/logout.js') }}"></script>
         <script src="JavaScriptファイルのURL"></script>
     </body>
 </html>

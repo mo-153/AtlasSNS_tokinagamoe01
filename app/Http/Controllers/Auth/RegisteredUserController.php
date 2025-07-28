@@ -57,15 +57,14 @@ class RegisteredUserController extends Controller
 
             // required:入力必須　min:最低〇文字　max:最大〇文字
             // required:users 重複しない
-            // /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i:英数字
 
             // confirmed:確認用と一致していること
 
 
 
 
-            // ☆ユーザー作成
-            $user = User::create([
+    // ☆ユーザー作成
+    $user = User::create([
     // ↑新しいユーザーをデータベースに作成
     'username' => $validatedData['username'],
     // ↑ふぉーむから送信されたユーザー名を取得
@@ -83,13 +82,9 @@ event(new Registered($user));
 // session：送ったデータを一時的二サーバー側に保存できる
 session (['username'=>$user->username]);
             return redirect('added');
-        }
-
-
+    }
         public function added(): View
         {
             return view('auth.added');
         }
-
-
     }
