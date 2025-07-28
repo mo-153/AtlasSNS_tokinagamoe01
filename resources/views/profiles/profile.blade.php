@@ -2,17 +2,19 @@
   <!-- プロフィールページの一番上、自己紹介部分 -->
 <article class="profile-content">
   <div class="user-profile">
-  <p>ユーザー名 {{ $user->username }}</p>
-  <p>自己紹介</p>
-  <div class="user-profile-icon">
+    <p>ユーザー名</p>
+    <p id="users-name">{{ $user->username }}</p>
+    <p>自己紹介</p>
+    <p id="users-bio">{{ $user->bio}}</p>
+  </div>
+    <div class="user-profile-icon">
     <img src="{{ asset('images/icon' . ($user->id % 7 + 1) . '.png') }}">
   </div>
-  <div class="follow-btn">
+  <div class="profile-follow-btn">
     <button type="button" class="btn follow-toggle {{ $user->is_followed ? 'btn-danger' : 'btn-primary' }}" data-user-id="{{ $user->id }}" data-follow="{{ $user->is_followed ? 'true' : 'false' }}">
   {{ $user->is_followed ? 'フォロー解除' : 'フォローする' }}
 </button>
    </div>
-</div>
 </article>
 
 <!-- 過去の投稿表示 -->
@@ -28,21 +30,12 @@
           <div class="users-post-content">
             <p id="follow-username">{{ $post->user->username }}</p>
             <p id="follow-content">{{ $post->post }}</p>
-              </div>
-            </article>
-            @endforeach
           </div>
-          @endif
-
-
-          <!-- 自分のプロフィール編集 -->
-          @if(Auth::id()===$user->id)
-          <!-- ↑自分のidかどうか確認してプロフィール編集できるようにする -->
-          <div class="my-profile-edit">
-            <form action="{{ route('profile.update')}}"  method="POST">
-            @csrf
-            @method('PUT')
-        </div>
-          @endif
-
+            <div class="posts-time">
+            <p>{{ $post->created_at->format('Y-m-d h:i') }}</p>
+            </div>
+        </article>
+     @endforeach
+</div>
+@endif
 </x-login-layout>
