@@ -369,9 +369,8 @@ li a {
 }
 
 /* 削除ボタンのホバー時にカラーチェンジ */
-.destroy-btn:hover {
-    background-color: #FF0000;
-    color: #fff;
+.post-destroy-btn:hover .destroy-btn {
+    content: url(../images/trash-h.png);
 }
 
 
