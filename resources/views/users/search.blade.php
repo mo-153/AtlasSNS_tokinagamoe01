@@ -13,8 +13,8 @@
     </form>
   </div>
 
-@if(isset($date) && $date->isNotEmpty())
-    @foreach($date as $user)
+@if(isset($users) && $users->isNotEmpty())
+    @foreach($users as $user)
         @if ($user->id !== Auth::id())
         <div class="user-icon">
           <img src="{{ asset('images/icon' . ($user->id % 7 + 1) . '.png') }}">
