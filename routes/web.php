@@ -60,7 +60,9 @@ Route::middleware('auth')->group(function() {
     Route::get('/profile/{id}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
 
     // ↓プロフィールの更新
-    Route::put('/update',[ProfileController::class,'update'])->name('profile.update');
+    Route::put('/update',[ProfileController::class,'update'])->name('profiles.update');
+
+
 
 
     // ↓ユーザー検索ページ
