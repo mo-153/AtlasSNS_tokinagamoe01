@@ -24,7 +24,7 @@
           <div class="post-content-container">
             <p id="post-username">{{ $post->user->username }}</p>
             <p id="post-content">{{ $post->post }}</p>
-            <div class="post-time">
+          <div class="post-time">
             <p>{{ $post->created_at->format('Y-m-d h:i') }}</p>
           </div>
 
@@ -65,7 +65,6 @@
         <div class = "modal_bg js-modal-close"></div>
         <div class ="modal_content">
           <form action="{{ route('posts.update',['id'=>$post->post]) }}" class="modal-form" method="POST">
-
             @csrf
             @method('PUT')
             <textarea name="post" class="modal_post"></textarea>
