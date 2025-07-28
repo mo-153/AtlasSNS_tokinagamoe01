@@ -52,7 +52,7 @@ class FollowsController extends Controller
         // ↑follow,postsをフォローリストへ渡したいから2つ記述する
     }
 
-    // フォロワーリストのページ表示
+    // フォロワーリストのページ
        public function followerList(){
         $user=Auth::user();
         $followers=$user->followers()->get();

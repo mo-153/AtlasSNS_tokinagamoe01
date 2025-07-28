@@ -43,7 +43,6 @@ $(document).on("click", ".follow-toggle", function (event) {
 });
 
 
-
 // 投稿の編集のモーダル表示
 $(function () {
   $('.js-modal-open').on('click', function () {
@@ -59,6 +58,7 @@ $(function () {
     // ↑取得した投稿内容をモーダルの中身へ渡す
     $('.modal_id').val(post_id);
     $('.modal-form').attr('action', '/posts/' + post_id);
+    $('modal-form').attr('action', '/posts/' + post_id);
     // ↑actionを設定
     return false;
     // ↑取得した投稿内容のidをモーダルの中身へ渡す

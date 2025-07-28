@@ -9,11 +9,16 @@ class Follow extends Model
 {
     use HasFactory;
 
-        protected $fillable = [
-        'following_id',
-        'followed_id',
 
-        // protected $fillableを記述することでfollowing_id,followed_idの登録ができるようになる
+    // リレーション設定
+    public function followed(){
+        return $this -> belongsToMany(followed::class)-> withTimestamps();
 
-    ];
+        // belongToMany()
+        // →多対多のリレーションシップを設定できる
+        // withTimestamps()
+        // →タイムスタンプ（）が自動的に保存する
+        // →中間テーブルはタイムスタンプが自動されないから記載する
+
+        }
 }

@@ -28,7 +28,6 @@
               <p>{{ $post->created_at->format('Y-m-d h:i') }}</p>
             </div>
             </article>
-
             @endforeach
           </div>
         </x-login-layout>

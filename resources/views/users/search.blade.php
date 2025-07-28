@@ -33,3 +33,4 @@
     @endforeach
 @endif
 </x-login-layout>
+<!-- ↑ページ全体の見た目を統一するために必要 -->
