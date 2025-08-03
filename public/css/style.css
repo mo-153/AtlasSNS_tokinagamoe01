@@ -530,6 +530,16 @@ li a {
 }
 
 
+.update-button {
+    position: relative;
+    left: 400px;
+    padding: 5px 50px 5px 50px;
+    color: #fff;
+    background-color: #FF0000;
+    border: #FF0000;
+    border-radius: 5px;
+}
+
 /* プロフィールページの過去の投稿表示 */
 .user-posts {
     display: flex;

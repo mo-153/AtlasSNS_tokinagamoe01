@@ -28,7 +28,7 @@
             </div>
           </div>
           <div class="profile-update-btn">
-           <button type="submit">更新</button>
+           <button type="submit" class=update-button>更新</button>
            </div>
          </form>
         </div>
