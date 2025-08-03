@@ -9,6 +9,10 @@ class Follow extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['following_id','followed_id'];
+    // ↑フォローボタンの切り替えに必要「protected $fillable」
+
+
 
     // リレーション設定
     public function followed(){

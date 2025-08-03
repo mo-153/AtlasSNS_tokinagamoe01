@@ -17,6 +17,7 @@ $(document).on("click", ".follow-toggle", function (event) {
   var button = $(this);
   var userId = button.data("user-id");
   // ↑event.preventDefault();でクリックしてもページが移動しないようにする
+  var isFollow = button.data("follow") === "true";
 
   $.ajax({
     url: "/follow",
@@ -38,9 +39,21 @@ $(document).on("click", ".follow-toggle", function (event) {
 
         button.data("follow", "false");
       }
+      updateFollowCounts();
+
+      // フォロワー数、フォロワー数のカウント
+      function updateFollowCounts() {
+        $.get("/api/follow-counts", function (data) {
+          $("#follow-count").text(data.followCount + "名");
+          $("#follower-count").text(data.followerCount + "名");
+        });
+      }
     },
   });
 });
+
+
+
 
 
 // 投稿の編集のモーダル表示

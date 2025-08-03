@@ -79,7 +79,9 @@ Route::middleware('auth')->group(function() {
     //フォローする
     Route::post('/follow',[FollowsController::class,'follow'])->name('follow');
 
-    Route::get('/follow-counts',[FollowsController::class,'followCounts']);
+    Route::post('/unfollow', [FollowsController::class, 'unfollow'])->name('unfollow');
+
+    Route::get('/api/follow-counts',[FollowsController::class,'followCounts']);
 
 
     // 投稿を削除する

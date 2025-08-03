@@ -52,6 +52,15 @@ class FollowsController extends Controller
         // ↑follow,postsをフォローリストへ渡したいから2つ記述する
     }
 
+public function followCounts(){
+    $user=Auth::user();
+    return response()->json([
+        'followCount'=>$user->follows()->count(),
+                'followerCount'=>$user->followers()->count(),
+    ]);
+}
+
+
     // フォロワーリストのページ
        public function followerList(){
         $user=Auth::user();
