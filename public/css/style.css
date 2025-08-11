@@ -11,6 +11,13 @@ header {
     background: #186AC9;
 }
 
+.logo {
+    width: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
 /* main content */
 #row {
     display: flex;
@@ -49,23 +56,28 @@ form {
 }
 
 /* ヘッダーのアコーディオンメニュー */
+
 .accordion-item {
     width: 3%;
     height: 5%;
-    position: fixed;
-    top: 85px;
+    position: absolute;
+    top: 55px;
     right: 220px;
-    background-color: #186AC9;
     color: #fff;
     white-space: nowrap;
 }
 
 .icon {
     position: relative;
-    top: -65px;
-    right: -145px;
+    width: 50px;
+    top: -50px;
+    left: 150px;
 }
 
+.icon img {
+    width: 100%;
+    height: auto;
+}
 
 .accordion-header {
     position: relative;
@@ -97,6 +109,8 @@ form {
     padding: 0;
     margin: 0;
     white-space: nowrap;
+    z-index: 10;
+    /* ↑前面に配置 */
 }
 
 li {
@@ -111,6 +125,7 @@ li {
 }
 
 li a {
+
     color: #727272;
 }
 
@@ -125,23 +140,62 @@ li a {
     color: #fff;
 }
 
-
 /* サイドバー */
+#confirm {
+    position: relative;
+    top: -10px;
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+}
+
+#side-bar-username {
+    position: relative;
+    top: 20px;
+}
+
+.side-bar-list {
+    position: relative;
+    top: 25px;
+}
+
 #follow-count {
     position: relative;
-    top: -35px;
+    top: -33px;
     left: 120px;
 }
 
+#follower-count {
+    position: relative;
+    top: -33px;
+    left: 120px;
+}
+
+
 .side-bar-btn {
     position: relative;
-    top: -30px;
+    top: -20px;
     left: 100px;
-    padding: 10px;
+    padding: 10px 20px 10px 20px;
     color: #fff;
     background-color: #186AC9;
-    border-radius: 5px
+    border-radius: 5px;
+    font-size: 10px;
 }
+
+.side-bar-btns {
+    position: relative;
+    top: -5px;
+    left: 100px;
+    padding: 10px 20px 10px 20px;
+    color: #fff;
+    background-color: #186AC9;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+
+
 
 .side-btn {
     position: relative;
@@ -153,11 +207,27 @@ li a {
     border-radius: 5px
 }
 
+.side-bar-search {
+    position: relative;
+    top: -5px;
+    width: 250px;
+    height: 900px;
+    background-color: #fff;
+}
+
 /* searchページ */
 .search {
     position: relative;
-    top: 40px;
-    left: 70px;
+    top: -11px;
+    height: 100px;
+    width: 100%;
+    padding: 30px 60px;
+    /* top/bottom: 30px, left/right: 60px */
+    box-sizing: border-box;
+    /* ← paddingを含めて高さ・幅を計算 */
+    background-color: #fff;
+    overflow: hidden;
+    /* 高さを超えた内容を隠す場合 */
 }
 
 #search-form {
@@ -173,23 +243,35 @@ li a {
     height: 30px;
 }
 
+#search-word {
+    position: relative;
+    top: -20px;
+    left: 500px;
+    /* font-size: 20px; */
+}
+
+.search-content {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
 .follow-btn {
     position: relative;
-    top: 25%;
+    top: -30px;
     left: 600px;
 }
 
 .user-icon {
     position: relative;
     display: flex;
-    top: 140px;
+    top: 40px;
     left: 260px;
 }
 
 .search_username {
     position: relative;
-    top: 100px;
-    left: 350px;
+    left: 370px;
     color: #727272;
 }
 
@@ -198,7 +280,7 @@ li a {
 .new-post-form {
     width: 100%;
     box-sizing: border-box;
-    height: 250px;
+    height: 200px;
     position: relative;
     top: -75px;
     padding-top: 60px;
@@ -271,11 +353,14 @@ li a {
     flex-direction: column;
     position: relative;
     left: 180px;
+    width: 500px;
+    max-width: 100%;
 }
 
 #post-content {
-    white-space: pre-wrap;
-    /* 改行保持 */
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
 }
 
 .content {
@@ -410,7 +495,6 @@ li a {
     padding: 15px;
     margin-top: -20px;
     height: auto;
-    display: flex;
     flex-direction: column;
     row-gap: 5px;
     /* ←余白 */
@@ -424,6 +508,15 @@ li a {
     position: relative;
     top: -50px;
     left: 150px;
+    width: 500px;
+    max-width: 100%;
+}
+
+#follow-content {
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+
 }
 
 .follow-post-time {
@@ -481,7 +574,16 @@ li a {
     position: relative;
     top: -50px;
     left: 150px;
+    width: 500px;
+    max-width: 100%;
 }
+
+#follower-content {
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
 
 .follower-post-time {
     position: relative;
@@ -540,7 +642,7 @@ li a {
     border-radius: 5px;
 }
 
-/* プロフィールページの過去の投稿表示 */
+/* 他ユーザープロフィールページの過去の投稿表示 */
 .user-posts {
     display: flex;
     background-color: #fff;
@@ -558,12 +660,21 @@ li a {
 
 .users-post-content {
     position: relative;
-    left: 170px;
+    top: 5px;
+    left: 150px;
+    width: 500px;
+    max-width: 100%;
+}
+
+.users-content {
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
 }
 
 .posts-time {
     position: relative;
-    left: 720px;
+    left: 250px;
 }
 
 
