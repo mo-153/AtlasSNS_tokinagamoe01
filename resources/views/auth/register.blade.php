@@ -18,7 +18,7 @@
             {{ Form::email('email',null,['class' => 'input']) }}
 
              {{ Form::label('password') }}
-             {{ Form::text('password',null,['class' => 'input']) }}
+             {{ Form::password('password',null,['class' => 'input','placeholder']) }}
 
              {{ Form::label('password confirm') }}
              {{ Form::password('password_confirmation',null,['class' => 'input', 'placeholder' => '確認用パスワード']) }}
