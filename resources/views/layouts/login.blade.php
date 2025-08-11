@@ -43,8 +43,8 @@
       <span class = "allow"></span>
       <div class = "accordion-content">
         <ul>
-          <li><a href="top">HOME</a></li>
-          <li><a href="{{ route('profiles.edit',['id'=>Auth::id()])}}" class="profile">プロフィール編集</a>
+          <li><a href="top" class=>HOME</a></li>
+          <li><a href="{{ route('profiles.edit',['id'=>Auth::id()])}}" class="profile" >プロフィール編集</a>
           </li>
           <li>
             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
@@ -69,21 +69,25 @@
  <div id="side-bar">
       <div id="confirm">
         <!-- ユーザー名が表示されるように下記を記述 -->
-        <p>{{Auth::user()->username}}さんの</p>
+        <p id="side-bar-username">{{Auth::user()->username}}さんの</p>
         <div>
-          <p>フォロー数</p>
-          <p id = "follow-count">{{ Auth::user()->follows()->get()->count() }}名</p>
-          <!-- ↑ログイン中のユーザーでフォローしている数をカウントして表示 -->
+          <div class="side-bar-list">
+            <p>フォロー数</p>
+            <p id = "follow-count">{{ Auth::user()->follows()->get()->count() }}名</p>
+            <!-- ↑ログイン中のユーザーでフォローしている数をカウントして表示 -->
+            <a href="follow-list" class="side-bar-btn">フォローリスト</a>
+            <p>フォロワー数</p>
+            <p id = "follower-count">{{ Auth::user()->followers()->get()->count() }}名</p>
+            <!-- ↑ログイン中のユーザーでフォローされている数をカウントして表示 -->
+          </div>
+          <a href="follower-list" class="side-bar-btns">フォロワーリスト</a>
         </div>
-        <a href="follow-list" class="side-bar-btn">フォローリスト</a>
         <div>
-          <p>フォロワー数</p>
-          <p id = "follower-count">{{ Auth::user()->followers()->get()->count() }}名</p>
-          <!-- ↑ログイン中のユーザーでフォローされている数をカウントして表示 -->
-        </div>
-        <a href="follower-list" class="side-bar-btn">フォロワーリスト</a>
+       </div>
       </div>
-      <a href="search" class="side-btn">ユーザー検索</a>
+      <div class="side-bar-search">
+        <a href="search" class="side-btn">ユーザー検索</a>
+      </div>
     </div>
   <footer>
   </footer>

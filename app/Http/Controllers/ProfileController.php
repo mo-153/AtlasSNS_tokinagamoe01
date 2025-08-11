@@ -77,14 +77,6 @@ class ProfileController extends Controller
             // mimes:画像の拡張子を制限する
 
 
-            // アイコン画像が新しく更新された場合保存する
-            if($request->hasFile('image')){
-                // ↑アイコン画像が送られてきたか確認する
-                $path=$request->file('image')->store('profile_images','public');
-                // ↑アイコンをフォルダに保存する
-                $user->image=$path;
-                // ↑imageカラムに保存
-            }
 
 
             // ユーザーの登録情報の保存更新
@@ -95,10 +87,18 @@ class ProfileController extends Controller
             //  パスワードをそのまま保存すると危ないから暗号化(ハッシュ化)して保存するために必要
             $user->bio=$validatedData['bio'] ?? null;
 
+            // アイコン画像が新しく更新された場合保存する
+            if($request->hasFile('image')){
+                // ↑アイコン画像が送られてきたか確認する
+                $path=$request->file('image')->store('profile_images','public');
+                // ↑アイコンをフォルダに保存する
+                $user->image=$path;
+                // ↑imageカラムに保存
+            }
             $user->save();
             // ↑データベースに情報を保存
 
-        return redirect('/top');
-        // ↑TOPページへ飛ぶようにするs
-    }
-}
+            return redirect('/top');
+            // ↑TOPページへ飛ぶようにするs
+         }
+      }
