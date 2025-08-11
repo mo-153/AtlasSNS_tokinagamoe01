@@ -10,27 +10,33 @@
       <button id = "search-form"><i class = "fas fa-search"></i>
       <img src="{{ asset('images/search.png') }}" class="search-btn">
     </button>
+      @if(isset($keyword))
+      <p id="search-word">検索ワード：{{$keyword}}</p>
+      @endif
     </form>
   </div>
 
+
+
+
 @if(isset($users) && $users->isNotEmpty())
-    @foreach($users as $user)
-        @if ($user->id !== Auth::id())
-        <div class="user-icon">
-          <img src="{{ asset('images/icon' . ($user->id % 7 + 1) . '.png') }}">
-          <!-- ↑アイコンをランダムで表示 -->
+<div class= "search-content">
+@foreach($users as $user)
+@if ($user->id !== Auth::id())
+          <div class="user-icon">
+              <img src="{{ asset('images/icon' . ($user->id % 7 + 1) . '.png') }}">
+              <!-- ↑アイコンをランダムで表示 -->
+            </div>
+            <div class="search_username">{{ $user->username }}</div>
+            <div class="follow-btn">
+              <!-- フォロー・フォロー解除ボタン -->
+            <button type="button" class="btn follow-toggle {{ $user->is_followed ? 'btn-danger' : 'btn-primary' }}" data-user-id="{{ $user->id }}" data-follow="{{ $user->is_followed ? 'true' : 'false' }}">
+              {{ $user->is_followed ? 'フォロー解除' : 'フォローする' }}
+            </button>
         </div>
-        <div class="search_username">{{ $user->username }}</div>
-
-        <!-- フォロー・フォロー解除ボタン -->
-        <div class="follow-btn">
-
-        <button type="button" class="btn follow-toggle {{ $user->is_followed ? 'btn-danger' : 'btn-primary' }}" data-user-id="{{ $user->id }}" data-follow="{{ $user->is_followed ? 'true' : 'false' }}">
-          {{ $user->is_followed ? 'フォロー解除' : 'フォローする' }}
-        </button>
-           </div>
-          @endif
-    @endforeach
+        @endif
+        @endforeach
+      </div>
 @endif
 </x-login-layout>
 <!-- ↑ページ全体の見た目を統一するために必要 -->
