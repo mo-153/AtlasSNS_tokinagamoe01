@@ -67,6 +67,7 @@ public function followCounts(){
         $followers=$user->followers()->get();
 
         $posts=Post::whereIn('user_id',$followers->pluck('id'))->latest()->get();
+        $users = User::all();
 
         return view('follows.followerList',compact('followers','posts'));
     }
