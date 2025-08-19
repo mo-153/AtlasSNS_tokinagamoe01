@@ -13,15 +13,31 @@
             <div class = "login-form">
             {{ Form::label('user name') }}
             {{ Form::text('username',null,['class' => 'input']) }}
+            @error('username')
+            <div class="error"><span>{{$message}}</span></div>
+            @enderror
+
 
             {{ Form::label('mail address') }}
             {{ Form::email('email',null,['class' => 'input']) }}
+            @error('email')
+            <div class="error"><span>{{$message}}</span></div>
+            @enderror
+
 
              {{ Form::label('password') }}
              {{ Form::password('password',null,['class' => 'input','placeholder']) }}
+            @error('password')
+            <div class="error"><span>{{$message}}</span></div>
+            @enderror
+
 
              {{ Form::label('password confirm') }}
              {{ Form::password('password_confirmation',null,['class' => 'input', 'placeholder' => '確認用パスワード']) }}
+            @error('password_confirmation')
+            <div class="error"><span>{{$message}}</span></div>
+            @enderror
+
 
              <button class = "new-user-btn">REGISTER</button>
             </div>

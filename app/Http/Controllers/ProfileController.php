@@ -43,7 +43,6 @@ class ProfileController extends Controller
         $user = Auth::user();
 
    // バリデーション
-        // 新規登録のルール
      // 【UserName】
         // ・入力必須・2文字以上12文字以
      // 【MailAddress】
@@ -66,8 +65,29 @@ class ProfileController extends Controller
                 'email'=> 'required|min:5|max:40|unique:users,email,'. $user->id,
                 'password'=>'required|string|min:8|max:20|confirmed',
                 'bio'=>'nullable|string|max:150',
-                'image'=>'nullable|mimes:jpg,png,bmp,gif,svg'
-            ]);
+                'image'=>'nullable|mimes:jpg,png,bmp,gif,svg'],
+
+                ['username.required' => 'ユーザー名は必須項目です。',
+                  'username.min' => 'ユーザー名は2文字以上で入力してください。',
+                  'username.max' => 'ユーザー名は12文字以内で入力してください。',
+
+                  'email.required' => 'メールアドレスは必須項目です。',
+                  'email.min' => 'メールアドレスは5文字以上で入力してください。',
+                  'email.max' => 'メールアドレスは40文字以内で入力してください。',
+                  'email.email' => 'メールアドレスの形式で入力してください。',
+
+                  'password.required' => 'パスワードは必須項目です。',
+                  'password.alpha_num' => 'パスワードは英数字のみで入力してください。',
+                  'password.min' => 'パスワードは8文字以上で入力してください。',
+                  'password.max' => 'パスワードは20文字以内で入力してください。',
+                  'password.confirmed' => 'パスワード確認用と一致しません。',
+
+                  'bio.max'=>'自己紹介は150字以内で入力',
+
+                  'image'=>'このアイコン画像は使用できません',
+                   ]);
+
+
 
             // required:入力必須　min:最低〇文字　max:最大〇文字
             // required:users 重複しない

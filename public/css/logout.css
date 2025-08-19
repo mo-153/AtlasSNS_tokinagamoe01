@@ -37,7 +37,7 @@ header {
 .box {
     position: relative;
     top: -100px;
-    padding: 60px 50px 40px 50px;
+    padding: 90px 70px 90px 70px;
     margin: 300px 500px 200px 500px;
     font-weight: bold;
     background: #555555;
@@ -46,12 +46,34 @@ header {
 }
 
 .title {
+    position: relative;
+    top: -50px;
     color: #fff;
 }
 
 .login {
     position: relative;
     color: #fff;
+}
+
+.login-mail {
+    position: fixed;
+    top: 240px;
+    left: 540px;
+    white-space: pre-wrap;
+}
+
+.login-password {
+    position: fixed;
+    top: 300px;
+    left: 540px;
+    white-space: pre-wrap;
+
+}
+
+.login-button {
+    position: relative;
+    top: 60px;
 }
 
 .input {
@@ -62,8 +84,9 @@ header {
 
 .new-users {
     position: relative;
-    bottom: -40px;
+    top: 90px;
     font-weight: lighter;
+    white-space: nowrap;
     color: #fff;
 }
 
@@ -113,6 +136,12 @@ input {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
+
+.error {
+    font-size: 10px;
+    color: #EE0000;
+}
+
 
 .new-user-btn {
     position: relative;

@@ -49,31 +49,50 @@ class RegisteredUserController extends Controller
         // ・Password入力欄と一致しているか
 
 
-                $validatedData = $request->validate([
-                'username'=>'required|min:2|max:12',
-                'email'=> 'required|min:5|max:40|unique:users,email',
-                'password'=>'required|string|min:8|max:20|confirmed',
-            ]);
+         $validatedData = $request->validate([
+         'username'=>'required|min:2|max:12',
+         'email'=> 'required|min:5|max:40|unique:users,email',
+         'password'=>'required|string|min:8|max:20|confirmed',
+         ],
 
+         [
+         'username.required' => 'User Nameは必須項目です。',
+         'username.min' => 'User Nameは2文字以上で入力してください。',
+         'username.max' => 'User Nameは12文字以内で入力してください。',
+
+         'email.required' => 'Mail Addressは必須項目です。',
+         'email.min' => 'Mail Addressは5文字以上で入力してください。',
+         'email.max' => 'Mail Addressは40文字以内で入力してください。',
+         'email.email' => 'Mail Addressの形式で入力してください。',
+         'email.unique' => 'このMail Addressは既に使用されています。',
+
+         'password.required' => 'Passwordは必須項目です。',
+         'password.alpha_num' => 'Passwordは英数字のみで入力してください。',
+         'password.min' => 'Passwordは8文字以上で入力してください。',
+         'password.max' => 'Passwordは20文字以内で入力してください。',
+         'password.confirmed' => 'Password Confirmが一致しません。',
+    ]);
             // required:入力必須　min:最低〇文字　max:最大〇文字
             // required:users 重複しない
 
             // confirmed:確認用と一致していること
 
 
+            // ☆ユーザー作成
+            $user = User::create([
+                // ↑新しいユーザーをデータベースに作成
+                'username' => $validatedData['username'],
+                // ↑ふぉーむから送信されたユーザー名を取得
+                'email' => $validatedData['email'],
+                // メールアドレスを取得
+                'password' => Hash::make($validatedData['password']),
+                // ↑パスワードを取得
+                // ↑Hash::make()でハッシュ化(暗号化)して安全に保存する
+            ]);
 
 
-    // ☆ユーザー作成
-    $user = User::create([
-    // ↑新しいユーザーをデータベースに作成
-    'username' => $validatedData['username'],
-    // ↑ふぉーむから送信されたユーザー名を取得
-    'email' => $validatedData['email'],
-    // メールアドレスを取得
-    'password' => Hash::make($validatedData['password']),
-    // ↑パスワードを取得
-    // ↑Hash::make()でハッシュ化(暗号化)して安全に保存する
-]);
+
+
 
 // ユーザー登録イベントのディスパッチ
 event(new Registered($user));

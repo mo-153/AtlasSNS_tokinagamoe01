@@ -2,8 +2,12 @@
 
 <!-- 新規投稿フォーム -->
 <div class="new-post-icon">
-  <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}">
-</div>
+  @if(Auth::user()->image)
+  <img src="{{asset('storage/' . Auth::user()->image)}}">
+    @else
+    <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}">
+   @endif
+ </div>
   <form action="{{ route('posts.store') }}" method = "POST">
     @csrf
     <textarea name="post" class="new-post-form" placeholder="投稿内容を入力してください。"></textarea>
@@ -19,7 +23,11 @@
       @foreach($posts as $post)
         <article class="post-form-before">
           <div class="post-icon-before">
+              @if($post->user->image)
+              <img src="{{asset('storage/' . $post->user->image)}}">
+              @else
             <img src="{{ asset('images/icon' . ($post->user->id % 7 + 1) . '.png') }}">
+            @endif
           </div>
           <div class="post-content-container">
             <p id="post-username">{{ $post->user->username }}</p>
@@ -60,22 +68,24 @@
       @endforeach
      </div>
 
-      <!-- 編集のモーダルの中身 -->
-      <div class = "modal js-modal">
-        <div class = "modal_bg js-modal-close"></div>
-        <div class ="modal_content">
-          <form action="{{ route('posts.update',['id'=>$post->post]) }}" class="modal-form" method="POST">
-            @csrf
-            @method('PUT')
-            <textarea name="post" class="modal_post"></textarea>
-            <input type="hidden" class="modal_id" name="id" value="{{ $post->id }}">
-            <!-- ↑routeで{id}を記述していてidを送るから{}内の記述がいる -->
+     <!-- 編集のモーダルの中身 -->
+     <div class = "modal js-modal">
+       <div class = "modal_bg js-modal-close"></div>
+       <div class ="modal_content">
+         <form action="{{ route('posts.update',['id'=>$post->post]) }}" class="modal-form" method="POST">
+           @csrf
+           @method('PUT')
+           <textarea name="post" class="modal_post"></textarea>
+           <input type="hidden" class="modal_id" name="id" value="{{ $post->id }}">
+           <!-- ↑routeで{id}を記述していてidを送るから{}内の記述がいる -->
 
-            <!-- <input type="submit" value="更新">
-            {{ csrf_field() }} -->
-              <button type="submit" class = "post-more-edit">
-                <img src="{{ asset('images/edit.png') }}" class = "edit-more-btn">
-              </button>
+           <p id="post-error-message">投稿の文字数は最大で150字までです</p>
+
+           <!-- <input type="submit" value="更新">
+           {{ csrf_field() }} -->
+           <button type="submit" class = "post-more-edit">
+             <img src="{{ asset('images/edit.png') }}" class = "edit-more-btn">
+            </button>
           </form>
         </div>
       </div>
