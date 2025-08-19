@@ -36,7 +36,11 @@
         <div class = "accordion-item">
           <p>{{ Auth::user()->username }}さん</p>
            <div class="icon">
-          <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}">
+             @if(Auth::user()->image)
+              <img src="{{asset('storage/' . Auth::user()->image)}}">
+              @else
+            <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}">
+            @endif
         </div>
       </div>
     <div class ="accordion-header">

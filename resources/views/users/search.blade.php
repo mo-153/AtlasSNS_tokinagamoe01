@@ -24,8 +24,12 @@
 @foreach($users as $user)
 @if ($user->id !== Auth::id())
           <div class="user-icon">
-              <img src="{{ asset('images/icon' . ($user->id % 7 + 1) . '.png') }}">
-              <!-- ↑アイコンをランダムで表示 -->
+            @if($user->image)
+             <img src="{{asset('storage/' . $user->image)}}">
+              @else
+            <img src="{{ asset('images/icon' . ($user->id % 7 + 1) . '.png') }}">
+            @endif
+
             </div>
             <div class="search_username">{{ $user->username }}</div>
             <div class="follow-btn">

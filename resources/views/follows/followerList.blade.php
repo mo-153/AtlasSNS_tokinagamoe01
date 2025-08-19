@@ -1,23 +1,32 @@
 <x-login-layout>
-  <!-- フォローリストの表示 -->
+  <!-- フォロワーリストの表示 -->
       <article class="follower-list">
        <h2 class=follower-list-title>フォロワーリスト</h2>
        <div class="follower-icons">
          @foreach($followers as $follower)
          <div class="follower-icon">
-           <img src="{{ asset('images/icon' . ($follower->id % 7 + 1) . '.png') }}">
-          </div>
+          @if(!empty($follower->image))
+          <img src="{{asset('storage/' . $follower->image)}}">
+          @else
+          <img src="{{ asset('images/icon' . ($follower->id % 7 + 1) . '.png') }}">
+           @endif
+           </div>
           @endforeach
         </div>
       </article>
 
-      <!-- フォローユーザーの投稿表示 -->
+      <!-- フォロワーユーザーの投稿表示 -->
       <div class="follower-post-container">
         @foreach($posts as $post)
         <article class="follower-post">
           <div class="post-follower-icon">
             <a href="{{ route('profiles.profile', ['id' => $post->user->id]) }}">
-              <img src="{{ asset('images/icon' . ($post->user->id % 7 + 1) . '.png') }}">
+            @if(!empty($post->user->image))
+              <img src="{{asset('storage/' . $post->user->image)}}">
+              @else
+            <img src="{{ asset('images/icon' . ($post->user->id % 7 + 1) . '.png') }}">
+            @endif
+
             </a>
           </div>
           <div class="follower-post-content">

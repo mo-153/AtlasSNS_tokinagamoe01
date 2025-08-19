@@ -75,8 +75,13 @@ form {
 }
 
 .icon img {
-    width: 100%;
-    height: auto;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* ↑画像の縦横比を維持したまま切り取り */
+    border-radius: 25px;
+    /* ↑角を丸くする */
+
 }
 
 .accordion-header {
@@ -269,6 +274,16 @@ li a {
     left: 260px;
 }
 
+.user-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* ↑画像の縦横比を維持したまま切り取り */
+    border-radius: 25px;
+    /* ↑角を丸くする */
+
+}
+
 .search_username {
     position: relative;
     left: 370px;
@@ -282,7 +297,7 @@ li a {
     box-sizing: border-box;
     height: 200px;
     position: relative;
-    top: -75px;
+    top: -60px;
     padding-top: 60px;
     padding-left: 140px;
     resize: none;
@@ -297,6 +312,16 @@ li a {
     left: 60px;
     z-index: 1;
     /* ↑前面に配置 */
+}
+
+.new-post-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* ↑画像の縦横比を維持したまま切り取り */
+    border-radius: 25px;
+    /* ↑角を丸くする */
+
 }
 
 #post-form-btn {
@@ -317,7 +342,7 @@ li a {
 
 
 /* フォローしている人の投稿表示 */
-.post-container {
+.posts-container {
     display: flex;
     flex-direction: column;
     gap: 0px;
@@ -328,6 +353,8 @@ li a {
 .post-form-before {
     display: flex;
     align-items: flex-start;
+    position: relative;
+    top: 30px;
     background-color: #fff;
     border: 1px solid #fff;
     padding: 15px;
@@ -339,6 +366,11 @@ li a {
     width: 60px;
     height: 60px;
     margin-right: 15px;
+    object-fit: cover;
+    /* ↑画像の縦横比を維持したまま切り取り */
+    border-radius: 40px;
+    /* ↑角を丸くする */
+
 }
 
 .post-icon-before {
@@ -403,26 +435,28 @@ li a {
     width: 700px;
     height: 170px;
     position: relative;
-    left: 20px;
+    top: 50px;
+    left: 40px;
     border-color: #727272;
     resize: none;
 }
 
 .modal_content {
-    padding: 30px 750px 10px 20px;
-    /* 上,sita,左 */
+    margin-top: 40px;
     background-color: #fff;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* 中央に配置 */
-    width: 500px;
+    width: 800px;
+    height: 300px;
     max-width: 90vw;
     box-sizing: border-box;
     z-index: 1000;
-    border-radius: 10px
-        /* ↑角を丸くする */
+    border-radius: 10px;
+    /* ↑角を丸くする */
+    writing-mode: horizontal-tb;
 }
 
 .post-more-edit {
@@ -432,11 +466,20 @@ li a {
     border: #fff;
 }
 
+#post-error-message {
+    position: relative;
+    top: 50px;
+    left: 280px;
+    color: #FF0000;
+}
+
+
 .edit-more-btn {
     width: 50px;
     height: 50px;
     position: relative;
-    left: 270px;
+    top: 30px;
+    left: 300px;
 
 }
 
@@ -476,6 +519,15 @@ li a {
     /* ↑アイコンの幅を調節 */
 }
 
+.follow-icons img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* ↑画像の縦横比を維持したまま切り取り */
+    border-radius: 25px;
+    /* ↑角を丸くする */
+}
+
 .follow-icon {
     position: relative;
     left: 300px;
@@ -502,6 +554,15 @@ li a {
 
 .post-follow-icon {
     left: 0px;
+}
+
+.post-follow-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* ↑画像の縦横比を維持したまま切り取り */
+    border-radius: 25px;
+    /* ↑角を丸くする */
 }
 
 .follow-post-content {
@@ -542,6 +603,15 @@ li a {
     /* ↑アイコンの幅を調節 */
 }
 
+.follower-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* ↑画像の縦横比を維持したまま切り取り */
+    border-radius: 25px;
+    /* ↑角を丸くする */
+}
+
 .follower-icon {
     position: relative;
     left: 300px;
@@ -568,6 +638,15 @@ li a {
 
 .post-follower-icon {
     left: 0px;
+}
+
+.post-follower-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* ↑画像の縦横比を維持したまま切り取り */
+    border-radius: 25px;
+    /* ↑角を丸くする */
 }
 
 .follower-post-content {
@@ -610,6 +689,20 @@ li a {
     position: relative;
     top: -110px;
     left: 120px;
+}
+
+.img-icon {
+    position: relative;
+    top: 40px;
+}
+
+.user-profile-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* ↑画像の縦横比を維持したまま切り取り */
+    border-radius: 25px;
+    /* ↑角を丸くする */
 }
 
 #users-name {
@@ -658,6 +751,15 @@ li a {
     left: 100px;
 }
 
+.users-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* ↑画像の縦横比を維持したまま切り取り */
+    border-radius: 25px;
+    /* ↑角を丸くする */
+}
+
 .users-post-content {
     position: relative;
     top: 5px;
@@ -682,8 +784,17 @@ li a {
 /* プロフィール編集 */
 .my-profile-icon {
     position: relative;
-    top: 50px;
+    top: 40px;
     left: 230px;
+}
+
+.my-profile-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* ↑画像の縦横比を維持したまま切り取り */
+    border-radius: 25px;
+    /* ↑角を丸くする */
 }
 
 .edit-form {
@@ -719,4 +830,11 @@ li a {
     top: -30px;
     left: 20px;
     background-color: #fff;
+}
+
+
+.edit-error {
+    position: relative;
+    left: 20px;
+    color: #FF0000;
 }
