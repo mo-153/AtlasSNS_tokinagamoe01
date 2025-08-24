@@ -79,12 +79,12 @@
             <p>フォロー数</p>
             <p id = "follow-count">{{ Auth::user()->follows()->get()->count() }}名</p>
             <!-- ↑ログイン中のユーザーでフォローしている数をカウントして表示 -->
-            <a href="follow-list" class="side-bar-btn">フォローリスト</a>
+            <a href="{{ route('follow.list')}}" class="side-bar-btn">フォローリスト</a>
             <p>フォロワー数</p>
             <p id = "follower-count">{{ Auth::user()->followers()->get()->count() }}名</p>
             <!-- ↑ログイン中のユーザーでフォローされている数をカウントして表示 -->
           </div>
-          <a href="follower-list" class="side-bar-btns">フォロワーリスト</a>
+          <a href="{{ route('follower.list')}}" class="side-bar-btns">フォロワーリスト</a>
         </div>
         <div>
        </div>
