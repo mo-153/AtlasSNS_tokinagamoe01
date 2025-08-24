@@ -96,7 +96,8 @@ class PostsController extends Controller
         $post=Post::findOrFail($id);
 
         if(Auth::id()!==$post->user_id){
-            abort('この投稿を削除します。よろしいでしょうか？');
+<            abort('この投稿を削除します。よろしいでしょうか？');
+            abort('子の投稿を削除します。よろしいでしょうか？');
         }
         $post->delete();
         return redirect()->route('posts.index');

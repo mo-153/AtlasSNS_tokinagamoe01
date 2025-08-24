@@ -50,7 +50,7 @@ class User extends Authenticatable
     // フォローされているか
     public function isFollowedBy(Int $user_id)
     {
-        return $this->follows()->where('user_id', $user_id)->exists();
+        return $this->followers()->where('following_id', $user_id)->exists();
     }
 
     public function posts()
