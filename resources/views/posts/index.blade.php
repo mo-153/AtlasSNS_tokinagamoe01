@@ -66,26 +66,28 @@
           </div>
         </article>
       @endforeach
-     </div>
+    </div>
 
-     <!-- 編集のモーダルの中身 -->
-     <div class = "modal js-modal">
-       <div class = "modal_bg js-modal-close"></div>
-       <div class ="modal_content">
-         <form action="{{ route('posts.update',['id'=>$post->post]) }}" class="modal-form" method="POST">
-           @csrf
-           @method('PUT')
-           <textarea name="post" class="modal_post"></textarea>
+    <!-- 編集のモーダルの中身 -->
+    <div class="modal js-modal {{ $errors->has('post') ? 'is-active' : '' }}">
+      <div class = "modal_bg js-modal-close"></div>
+      <div class ="modal_content">
+        <form action="{{ route('posts.update',['id'=>$post->post]) }}" class="modal-form" method="POST">
+          @csrf
+          @method('PUT')
+          <textarea name="post" class="modal_post"></textarea>
            <input type="hidden" class="modal_id" name="id" value="{{ $post->id }}">
            <!-- ↑routeで{id}を記述していてidを送るから{}内の記述がいる -->
 
-           <p id="post-error-message">投稿の文字数は最大で150字までです</p>
-
-           <!-- <input type="submit" value="更新">
-           {{ csrf_field() }} -->
-           <button type="submit" class = "post-more-edit">
-             <img src="{{ asset('images/edit.png') }}" class = "edit-more-btn">
-            </button>
+           @error('post')
+           <div class="post-error"><span>{{ $message }}</span>
+          </div>
+          @enderror
+          <!-- <input type="submit" value="更新">
+          {{ csrf_field() }} -->
+          <button type="submit" class = "post-more-edit">
+            <img src="{{ asset('images/edit.png') }}" class = "edit-more-btn">
+          </button>
           </form>
         </div>
       </div>
