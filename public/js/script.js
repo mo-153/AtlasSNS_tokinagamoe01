@@ -84,6 +84,7 @@ $(function () {
     return false;
     // ↑モーダルの中身を非表示する
   });
+
 });
 
 $(document).on("click", "posts-destroy", function (e) {

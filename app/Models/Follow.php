@@ -11,7 +11,7 @@ class Follow extends Model
 
     protected $fillable = ['following_id','followed_id'];
     // ↑フォローボタンの切り替えに必要「protected $fillable」
-
+    //  データの登録・更新するときに$fillableで指定されたカラムのみ処理される
 
 
     // リレーション設定

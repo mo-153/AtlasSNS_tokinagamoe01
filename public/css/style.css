@@ -466,7 +466,7 @@ li a {
     border: #fff;
 }
 
-#post-error-message {
+.post-error {
     position: relative;
     top: 50px;
     left: 280px;
@@ -478,8 +478,8 @@ li a {
     width: 50px;
     height: 50px;
     position: relative;
-    top: 30px;
-    left: 300px;
+    top: 100px;
+    left: -390px;
 
 }
 
