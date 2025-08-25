@@ -26,7 +26,7 @@
               @else
             <img src="{{ asset('images/icon' . ($post->user->id % 7 + 1) . '.png') }}">
             @endif
-<            </a>
+            </a>
           </div>
           <div class="follow-post-content">
             <p id="follow-username">{{ $post->user->username }}</p>

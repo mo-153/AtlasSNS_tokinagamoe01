@@ -70,8 +70,11 @@ class PostsController extends Controller
 
     // 投稿編集を更新
     public function update(Request $request,$id){
-        $request->validate([
+       $validatedDate = $request->validate([
             'post'=>'required|string|max:150',
+        ],
+        [
+            'post.max' =>'投稿の文字数は最大で150字までです'
         ]);
 
         $post=Post::findOrFail($id);
@@ -84,7 +87,7 @@ class PostsController extends Controller
         // ↑セキュリティ対策・アクセス制限を確認
         // ↑他のユーザーが変更できないように
 
-        $post->post=$request->input('post');
+        $post->post=$validatedDate['post'];
         $post->save();
 
         return redirect()->route('posts.index');
@@ -96,7 +99,7 @@ class PostsController extends Controller
         $post=Post::findOrFail($id);
 
         if(Auth::id()!==$post->user_id){
-<            abort('この投稿を削除します。よろしいでしょうか？');
+        abort('この投稿を削除します。よろしいでしょうか？');
             abort('子の投稿を削除します。よろしいでしょうか？');
         }
         $post->delete();
