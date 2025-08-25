@@ -47,7 +47,7 @@
       <span class = "allow"></span>
       <div class = "accordion-content">
         <ul>
-          <li><a href="top" class=>HOME</a></li>
+          <li><a href="{{ route('posts.index') }}" class=>HOME</a></li>
           <li><a href="{{ route('profiles.edit',['id'=>Auth::id()])}}" class="profile" >プロフィール編集</a>
           </li>
           <li>
