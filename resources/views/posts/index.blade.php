@@ -37,7 +37,7 @@
           </div>
 
 
-            <!-- 投稿の編集ボタン -->
+            <!-- 自分の投稿の編集 -->
              @if(Auth::id() === $post->user_id)
              <!-- ↑Auth::id()でログインユーザーのユーザーIDを取得
               ===で同じユーザーかどうか確認
@@ -78,6 +78,10 @@
           <textarea name="post" class="modal_post"></textarea>
            <input type="hidden" class="modal_id" name="id" value="{{ $post->id }}">
            <!-- ↑routeで{id}を記述していてidを送るから{}内の記述がいる -->
+            <button type="submit" class = "post-more-edit">
+            <img src="{{ asset('images/edit.png') }}" class = "edit-more-btn">
+          </button>
+
 
            @error('post')
            <div class="post-error"><span>{{ $message }}</span>
@@ -85,9 +89,6 @@
           @enderror
           <!-- <input type="submit" value="更新">
           {{ csrf_field() }} -->
-          <button type="submit" class = "post-more-edit">
-            <img src="{{ asset('images/edit.png') }}" class = "edit-more-btn">
-          </button>
           </form>
         </div>
       </div>
