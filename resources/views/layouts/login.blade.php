@@ -90,7 +90,7 @@
        </div>
       </div>
       <div class="side-bar-search">
-        <a href="search" class="side-btn">ユーザー検索</a>
+        <a href="{{ route('search')}}" class="side-btn">ユーザー検索</a>
       </div>
     </div>
   <footer>
