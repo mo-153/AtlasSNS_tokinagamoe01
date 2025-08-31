@@ -11,7 +11,9 @@
               @if($user->image)
               <img src="{{asset('storage/' . $user->icon_image)}}">
               @else
-            <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}">
+              <img src="{{ asset('images/icon1.png') }}">
+
+            <!-- <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}"> -->
             @endif
           </div>
           <!-- ↑アイコン画像を更新したらそれを表示

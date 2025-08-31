@@ -8,7 +8,8 @@
           @if(!empty($follower->icon_image))
           <img src="{{asset('storage/' . $follower->icon_image)}}">
           @else
-          <img src="{{ asset('images/icon' . ($follower->id % 7 + 1) . '.png') }}">
+              <img src="{{ asset('images/icon1.png') }}">
+          <!-- <img src="{{ asset('images/icon' . ($follower->id % 7 + 1) . '.png') }}"> -->
            @endif
            </div>
           @endforeach
@@ -24,7 +25,9 @@
             @if($follower->icon_image)
               <img src="{{asset('storage/' . $post->user->icon_image)}}">
               @else
-            <img src="{{ asset('images/icon' . ($post->user->id % 7 + 1) . '.png') }}">
+              <img src="{{ asset('images/icon1.png') }}">
+
+            <!-- <img src="{{ asset('images/icon' . ($post->user->id % 7 + 1) . '.png') }}"> -->
             @endif
 
             </a>
