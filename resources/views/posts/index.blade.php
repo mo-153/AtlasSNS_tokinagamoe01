@@ -2,8 +2,8 @@
 
 <!-- 新規投稿フォーム -->
 <div class="new-post-icon">
-  @if(Auth::user()->image)
-  <img src="{{asset('storage/' . Auth::user()->image)}}">
+  @if(Auth::user()->icon_image)
+  <img src="{{asset('storage/' . Auth::user()->icon_image)}}">
     @else
     <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}">
    @endif
@@ -23,8 +23,8 @@
       @foreach($posts as $post)
         <article class="post-form-before">
           <div class="post-icon-before">
-              @if($post->user->image)
-              <img src="{{asset('storage/' . $post->user->image)}}">
+              @if($post->user->icon_image)
+              <img src="{{asset('storage/' . $post->user->icon_image)}}">
               @else
             <img src="{{ asset('images/icon' . ($post->user->id % 7 + 1) . '.png') }}">
             @endif

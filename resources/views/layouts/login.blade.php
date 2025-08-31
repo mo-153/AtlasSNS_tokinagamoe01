@@ -36,8 +36,8 @@
         <div class = "accordion-item">
           <p>{{ Auth::user()->username }}さん</p>
            <div class="icon">
-             @if(Auth::user()->image)
-              <img src="{{asset('storage/' . Auth::user()->image)}}">
+             @if(Auth::user()->icon_image)
+              <img src="{{asset('storage/' . Auth::user()->icon_image)}}">
               @else
             <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}">
             @endif

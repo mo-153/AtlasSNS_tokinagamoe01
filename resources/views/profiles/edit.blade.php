@@ -9,7 +9,7 @@
 
             <div class="my-profile-icon">
               @if($user->image)
-              <img src="{{asset('storage/' . $user->image)}}">
+              <img src="{{asset('storage/' . $user()->icon_image)}}">
               @else
             <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}">
             @endif
@@ -50,7 +50,7 @@
 
             <p id="profile-list">アイコン画像</p>
             <div class="icon-edit">
-              <input type="file" name="image" class="profile-icon-edit" accept="jpg,png,bmp,gif,svg">
+              <input type="file" name="icon_image" class="profile-icon-edit" accept="jpg,png,bmp,gif,svg">
               @error('image')
               <div class="edit-error"><span>{{$message}}</span></div>
             @enderror

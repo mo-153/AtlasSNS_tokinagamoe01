@@ -108,15 +108,15 @@ class ProfileController extends Controller
             $user->bio=$validatedData['bio'] ?? null;
 
             // アイコン画像が新しく更新された場合保存する
-            if($request->hasFile('image')){
+            if($request->hasFile('icon_image')){
                 // ↑アイコン画像が送られてきたか確認する
-                $path=$request->file('image')->store('profile_images','public');
+                $path=$request->file('icon_image')->store('profile_images','public');
                 // ↑アイコンをフォルダに保存する
-                $user->image=$path;
-                // ↑imageカラムに保存
+                $user->icon_image=$path;
+                // ↑hicon_imageカラムに保存
+                $user->save();
+                // ↑データベースに情報を保存
             }
-            $user->save();
-            // ↑データベースに情報を保存
 
             return redirect('/top');
             // ↑TOPページへ飛ぶようにするs
