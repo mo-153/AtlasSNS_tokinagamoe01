@@ -21,22 +21,22 @@ header {
 
 .top-tittle {
     position: relative;
-    top: -85px;
-    left: 5px;
+    top: -100px;
     max-width: 40%;
 }
 
 .sub-tittle {
     position: relative;
-    top: -95px;
-    right: 60px;
+    top: -110px;
+    right: 70px;
     color: #fff;
     font-size: 25px;
 }
 
 .box {
     position: relative;
-    top: -100px;
+    top: -130px;
+    left: 20px;
     padding: 90px 70px 90px 70px;
     margin: 300px 500px 200px 500px;
     font-weight: bold;
@@ -47,7 +47,8 @@ header {
 
 .title {
     position: relative;
-    top: -50px;
+    top: -70px;
+    left: 20px;
     color: #fff;
 }
 
@@ -58,17 +59,16 @@ header {
 
 .login-mail {
     position: fixed;
-    top: 240px;
-    left: 540px;
+    top: 200px;
+    left: 570px;
     white-space: pre-wrap;
 }
 
 .login-password {
     position: fixed;
-    top: 300px;
-    left: 540px;
+    top: 270px;
+    left: 570px;
     white-space: pre-wrap;
-
 }
 
 .login-button {
@@ -131,6 +131,7 @@ input {
     position: relative;
     padding: 15px 50px 10px 50px;
     margin: 200px 500px 300px 500px;
+    top: -40px;
     font-weight: bold;
     background: #555555;
     background-color: rgba(0, 0, 0, 0.2);
@@ -147,6 +148,8 @@ input {
     position: relative;
     top: 15px;
     left: 100px;
+    width: 100px;
+    height: 30px;
     padding-left: 20px;
     padding-right: 20px;
     background-color: #FF3333;
@@ -154,7 +157,7 @@ input {
     border-color: #FF3333;
     font-weight: lighter;
     border-radius: 10px;
-    font-size: large;
+    font-size: 10px;
 }
 
 .back-page {

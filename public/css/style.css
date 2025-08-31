@@ -418,8 +418,10 @@ li a {
 }
 
 .edit-btn {
+    position: relative;
     width: 50px;
     height: 50px;
+
 }
 
 
@@ -466,22 +468,22 @@ li a {
     border: #fff;
 }
 
+.edit-more-btn {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 95px;
+    right: 400px;
+}
+
 .post-error {
     position: relative;
-    top: 50px;
+    top: 30px;
     left: 280px;
     color: #FF0000;
 }
 
 
-.edit-more-btn {
-    width: 50px;
-    height: 50px;
-    position: relative;
-    top: 100px;
-    left: -390px;
-
-}
 
 /* 投稿削除ボタン */
 .post-destroy-btn {

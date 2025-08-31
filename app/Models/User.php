@@ -21,6 +21,7 @@ class User extends Authenticatable
         'password',
         'following_id',
         'followed_id',
+        'icon_image'
     ];
     // protected $fillableを記述することでusername, email,password,following_id,followed_idの登録ができるようになる
 

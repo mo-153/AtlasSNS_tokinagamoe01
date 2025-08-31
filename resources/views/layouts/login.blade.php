@@ -36,8 +36,8 @@
         <div class = "accordion-item">
           <p>{{ Auth::user()->username }}さん</p>
            <div class="icon">
-             @if(Auth::user()->image)
-              <img src="{{asset('storage/' . Auth::user()->image)}}">
+             @if(Auth::user()->icon_image)
+              <img src="{{asset('storage/' . Auth::user()->icon_image)}}">
               @else
             <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}">
             @endif
@@ -47,7 +47,7 @@
       <span class = "allow"></span>
       <div class = "accordion-content">
         <ul>
-          <li><a href="top" class=>HOME</a></li>
+          <li><a href="{{ route('posts.index') }}" class=>HOME</a></li>
           <li><a href="{{ route('profiles.edit',['id'=>Auth::id()])}}" class="profile" >プロフィール編集</a>
           </li>
           <li>
@@ -90,7 +90,7 @@
        </div>
       </div>
       <div class="side-bar-search">
-        <a href="search" class="side-btn">ユーザー検索</a>
+        <a href="{{ route('search')}}" class="side-btn">ユーザー検索</a>
       </div>
     </div>
   <footer>
