@@ -21,7 +21,7 @@
         <article class="follower-post">
           <div class="post-follower-icon">
             <a href="{{ route('profiles.profile', ['id' => $post->user->id]) }}">
-            @if(!empty($post->user->icon_image))
+            @if($follower->icon_image)
               <img src="{{asset('storage/' . $post->user->icon_image)}}">
               @else
             <img src="{{ asset('images/icon' . ($post->user->id % 7 + 1) . '.png') }}">
