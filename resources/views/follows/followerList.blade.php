@@ -6,9 +6,9 @@
          @foreach($followers as $follower)
          <div class="follower-icon">
           @if(!empty($follower->icon_image))
-          <img src="{{asset('storage/' . $follower->icon_image)}}">
+          <img src="{{ asset('storage/' . $follower->icon_image)}}">
           @else
-              <img src="{{ asset('images/icon1.png') }}">
+          <img src="{{ asset('images/icon1.png') }}">
           <!-- <img src="{{ asset('images/icon' . ($follower->id % 7 + 1) . '.png') }}"> -->
            @endif
            </div>
@@ -22,7 +22,7 @@
         <article class="follower-post">
           <div class="post-follower-icon">
             <a href="{{ route('profiles.profile', ['id' => $post->user->id]) }}">
-            @if($follower->icon_image)
+            @if(!empty($post->user->icon_image))
               <img src="{{asset('storage/' . $post->user->icon_image)}}">
               @else
               <img src="{{ asset('images/icon1.png') }}">

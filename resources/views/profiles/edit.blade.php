@@ -8,7 +8,7 @@
             @method('PUT')
 
             <div class="my-profile-icon">
-              @if($user->image)
+              @if(!empty($user->image))
               <img src="{{asset('storage/' . $user->icon_image)}}">
               @else
               <img src="{{ asset('images/icon1.png') }}">

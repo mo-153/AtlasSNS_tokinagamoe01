@@ -2,7 +2,7 @@
 
 <!-- 新規投稿フォーム -->
 <div class="new-post-icon">
-  @if(Auth::user()->icon_image) <!-- ←icon_imageはカラム名 -->
+  @if(!empty(Auth::user()->icon_image)) <!-- ←icon_imageはカラム名 -->
   <img src="{{asset('storage/' . Auth::user()->icon_image)}}">
     @else
     <img src="{{ asset('images/icon1.png') }}">
@@ -24,7 +24,7 @@
       @foreach($posts as $post)
         <article class="post-form-before">
           <div class="post-icon-before">
-              @if($post->user->icon_image)
+              @if(!empty($post->user->icon_image))
               <img src="{{asset('storage/' . $post->user->icon_image)}}">
               @else
              <img src="{{ asset('images/icon1.png') }}">
