@@ -24,7 +24,7 @@
 @foreach($users as $user)
 @if ($user->id !== Auth::id())
           <div class="user-icon">
-            @if(!empty($user->icon_image))
+              @if( $user->icon_image && $user->icon_image !== 'icon1.png')
              <img src="{{asset('storage/' . $user->icon_image)}}">
               @else
               <img src="{{ asset('images/icon1.png') }}">

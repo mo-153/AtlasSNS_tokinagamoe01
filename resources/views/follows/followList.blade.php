@@ -5,8 +5,9 @@
        <div class="follow-icons">
          @foreach($follows as $follow)
          <div class="follow-icon">
-           @if(!empty($follow->icon_image))
-          <img src="{{ asset('storage/' . $follow->icon_image)}}">
+          @if( $follow->icon_image && $follow->icon_image !== 'icon1.png')
+          <!-- ↑「$follow->icon_image」でフォローユーザーのアイコン画像があるのか、「&&」かつ、「$follow->icon_image !== icon1.png」でフォローユーザーのアイコン画像がicon1.pngでないか -->
+           <img src="{{ asset('storage/' . $follow->icon_image)}}">
           @else
           <img src="{{ asset('images/icon1.png') }}">
           <!-- <img src="{{ asset('images/icon' . ($follow->id % 7 + 1) . '.png') }}"> -->
@@ -22,7 +23,8 @@
         <article class="follow-post">
           <div class="post-follow-icon">
             <a href="{{ route('profiles.profile', ['id' => $post->user->id]) }}">
-             @if(!empty($post->user->icon_image))
+              @if( $post->user->icon_image && $post->user->icon_image !== 'icon1.png')
+          <!-- ↑「$follow->icon_image」でアイコンがあるか、「&&」でかつ、「$follow->icon_image !== 'icon1.png'」でアイコン画像が「icon1.png」でないか -->
               <img src="{{asset('storage/' . $post->user->icon_image)}}">
               @else
               <img src="{{ asset('images/icon1.png') }}">

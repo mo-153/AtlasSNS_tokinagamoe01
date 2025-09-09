@@ -8,16 +8,12 @@
             @method('PUT')
 
             <div class="my-profile-icon">
-              @if(!empty($user->image))
-              <img src="{{asset('storage/' . $user->icon_image)}}">
+              @if( Auth::user()->icon_image && Auth::user()->icon_image !== 'icon1.png')
+               <img src="{{asset('storage/' . $user->icon_image)}}">
               @else
               <img src="{{ asset('images/icon1.png') }}">
-
-            <!-- <img src="{{ asset('images/icon' . (Auth::id() % 7 + 1) . '.png') }}"> -->
             @endif
           </div>
-          <!-- ↑アイコン画像を更新したらそれを表示
-          　もしアイコン画像を更新していなければ初期でimagesの中の画像を表示 -->
 
           <div class="edit-form">
             <p id="profile-list">ユーザー名</p>

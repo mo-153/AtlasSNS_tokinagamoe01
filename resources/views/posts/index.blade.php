@@ -2,7 +2,7 @@
 
 <!-- 新規投稿フォーム -->
 <div class="new-post-icon">
-  @if(!empty(Auth::user()->icon_image)) <!-- ←icon_imageはカラム名 -->
+ @if( Auth::user()->icon_image && Auth::user()->icon_image !== 'icon1.png')
   <img src="{{asset('storage/' . Auth::user()->icon_image)}}">
     @else
     <img src="{{ asset('images/icon1.png') }}">
@@ -24,11 +24,11 @@
       @foreach($posts as $post)
         <article class="post-form-before">
           <div class="post-icon-before">
-              @if(!empty($post->user->icon_image))
+             @if( $post->user->icon_image && $post->user->icon_image !== 'icon1.png')
+             <!-- ↑「$post->user->icon_image」でアイコンがあるか、「&&」でかつ、「$post->user->icon_image !== 'icon1.png'」でアイコン画像が「icon1.png」でないか -->
               <img src="{{asset('storage/' . $post->user->icon_image)}}">
               @else
              <img src="{{ asset('images/icon1.png') }}">
-            <!-- <img src="{{ asset('images/icon' . ($post->user->id % 7 + 1) . '.png') }}"> -->
             @endif
           </div>
           <div class="post-content-container">

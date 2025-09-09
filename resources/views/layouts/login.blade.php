@@ -36,7 +36,8 @@
         <div class = "accordion-item">
           <p>{{ Auth::user()->username }}さん</p>
            <div class="icon">
-             @if(!empty( Auth::user()->icon_image))
+             @if( Auth::user()->icon_image && Auth::user()->icon_image !== 'icon1.png')
+             <!-- ↑「Auth::user()->icon_image」でアイコン画像があるか、「&&」かつ、「Auth::user()->icon_image !== 'icon1.png'」でアイコン画像が「icon1.png」でないかを確認する -->
               <img src="{{asset('storage/' . Auth::user()->icon_image)}}">
               @else
               <img src="{{ asset('images/icon1.png') }}">
